@@ -1,10 +1,19 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom'
+import { Container, Row } from 'react-bootstrap'
 import {HeaderStyle} from "./View/Component/index"
-import {Container} from "react-bootstrap";
+import About from './View/Component/About';
+import Contact from './View/Component/Contact';
 function App() {
   return (
       <Container>
-        <HeaderStyle></HeaderStyle>
+        <HeaderStyle />
+        <Row>
+          <Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Row>
       </Container>
   );
 }

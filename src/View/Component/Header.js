@@ -17,7 +17,8 @@ export default function HeaderStyle() {
                         <div className="tab">
                             <Nav.Link as={Link} to="/">Home</Nav.Link>
                             <Nav.Link as={Link} to="/">Find a Jobs </Nav.Link>
-                            <Nav.Link as={Link} to="/">About</Nav.Link>
+                            <Nav.Link as={Link} to="/about">About</Nav.Link>
+                            <Nav.Link as={Link} to="/contact">Contacts</Nav.Link>                         
                             <Nav.Link as={Link} to="/">Page</Nav.Link>
                         </div>
                         <div className='action'>

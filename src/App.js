@@ -1,8 +1,11 @@
+import React from 'react';
+import {HeaderStyle} from "./View/Component/index"
+import {Container} from "react-bootstrap";
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+      <Container>
+        <HeaderStyle></HeaderStyle>
+      </Container>
   );
 }
 

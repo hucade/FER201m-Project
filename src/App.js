@@ -1,9 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom'
 import { Container, Row } from 'react-bootstrap'
-import {HeaderStyle} from "./View/Component/index"
-import About from './View/Component/About';
-import Contact from './View/Component/Contact';
+import {HeaderStyle, JobDetail, JobListing, About, Contact} from "./View/Component/index"
+
 function App() {
   return (
       <Container>
@@ -12,6 +11,8 @@ function App() {
           <Routes>
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/JobDetail" element={<JobDetail />} />
+            <Route path="/JobListing" element={<JobListing />} />
           </Routes>
         </Row>
       </Container>

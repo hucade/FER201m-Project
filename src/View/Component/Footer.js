@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import '../Assets/scss/Footer.scss'; // Import CSS file if needed
@@ -59,7 +60,7 @@ function Footer() {
                                                     className="placeholder hide-on-focus"
                                                 />
 
-                                                <Button variant="light" style={{ height: '20px', width: '20px' }}><FaArrowRight /></Button>{' '}
+                                                <Button variant="light" style={{ height: '29px', width: '15px' }}><FaArrowRight /></Button>{' '}
 
                                                 <div className="mt-10 info"></div>
                                             </form>

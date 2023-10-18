@@ -3,10 +3,11 @@ import { Container, Row, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from "../Assets/logo.png";
 import './Header.scss'
+
 export default function HeaderStyle() {
     return (
-        <header>
-            <Container>
+        <Container fluid>
+            <header>
                 <Row>
                     <div className="inner">
                         <div className="Logo">
@@ -18,16 +19,17 @@ export default function HeaderStyle() {
                             <Nav.Link as={Link} to="/">Home</Nav.Link>
                             <Nav.Link as={Link} to="/">Find a Jobs </Nav.Link>
                             <Nav.Link as={Link} to="/about">About</Nav.Link>
-                            <Nav.Link as={Link} to="/contact">Contacts</Nav.Link>                         
+                            <Nav.Link as={Link} to="/contact">Contacts</Nav.Link>
                             <Nav.Link as={Link} to="/">Page</Nav.Link>
                         </div>
                         <div className='action'>
-                            
+
                         </div>
                     </div>
                 </Row>
-            </Container>
-        </header>
+
+            </header>
+        </Container>
     );
 }
 

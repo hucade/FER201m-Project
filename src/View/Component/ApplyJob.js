@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Form } from 'react-bootstrap';
 // import '../Assets/scss/ApplyJob.scss';
 
 
@@ -9,12 +10,13 @@ export default function ApplyJobs() {
                 <header className="header">
                     <h1 className="post-job">Fill the form </h1>
                 </header>
-                <form>
-                    <div className="form-group">
-                        <label id="name-label" for="name">
+                <Form>
+
+                    <Form.Group className="form-group">
+                        <Form.Label id="name-label" for="name">
                             Enter Your Name
-                        </label>
-                        <input
+                        </Form.Label>
+                        <Form.Control
                             type="text"
                             name="name"
 
@@ -23,25 +25,26 @@ export default function ApplyJobs() {
 
                             required
                         />
-                    </div>
-                    <div className="form-group">
-                        <label>
+                    </Form.Group>
+                    <Form.Group className="form-group">
+                        <Form.Label>
                             Upload Your Resume
-                        </label>
-                        <label>
-                            <input type="file" id="myFile" name="filename" required />
-                        </label>
-                    </div>
-                    <div className="form-group">
-                        <button
+                        </Form.Label>
+                        <Form.Label>
+                            <Form.Control type="file" id="myFile" name="filename" required />
+                        </Form.Label>
+                    </Form.Group>
+                    <Form.Group className="form-group">
+                        <Button
                             type="submit"
                             className="submit-button"
 
                         >
                             Submit
-                        </button>
-                    </div>
-                </form>
+                        </Button>
+                    </Form.Group>
+
+                </Form>
             </div>
         </div>
     );

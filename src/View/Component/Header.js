@@ -3,6 +3,10 @@ import { Container, Row, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from "../Assets/logo.png";
 import './Header.scss'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle'
+import 'bootstrap/dist/js/bootstrap'
+
 export default function HeaderStyle() {
     return (
         <header>

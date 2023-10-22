@@ -24,14 +24,9 @@ export default function Register() {
         <Row>
             <ToastContainer />
             <Col >
-            <div className="Logo" style={{marginTop: "20px", marginRight: "10px"}}>
-                    <Link to="../">
-                        <img src={logo} alt="" />
-                    </Link>
-                </div>
 
                 <div >
-                    <div className="offset-lg-1 col-lg-10 " style={{marginTop:"34px"}}>
+                    <div className="offset-lg-2 col-lg-8 " style={{marginTop:"40px", marginBottom:"30px"}}>
                         <div className="card">
                             <div className="card-header" style={{backgroundColor: "#f4f4eb"}} >
                                 <h1 className="text-center ">Sign Up</h1>

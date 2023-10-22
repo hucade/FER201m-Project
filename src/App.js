@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom'
 import { Container, Row } from 'react-bootstrap'
-import { HeaderStyle, JobDetail, JobListing, About, Contact, HomePage, PostJob, ApplyJobs } from "./View/Component/index"
+import { Header,JobDetail, JobListing, About, Contact, HomePage, PostJob, ApplyJobs, Footer, Login, Register } from "./View/Component/index"
 
 function App() {
   return (
-    <Container>
-
-      <Row>
+    <Container fluid>
+      <Header></Header>
+      <Row>        
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
@@ -16,8 +16,11 @@ function App() {
           <Route path="/JobListing" element={<JobListing />} />
           <Route path="/PostJob" element={<PostJob />} />
           <Route path="/applyjob" element={<ApplyJobs />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </Row>
+      <Footer></Footer>
     </Container>
   );
 }

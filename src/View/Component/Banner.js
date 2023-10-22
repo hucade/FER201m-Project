@@ -1,11 +1,8 @@
-
 import "../Assets/scss/stylingSon.scss"
 import BannerImg from "../Assets/h1_hero.jpg"
 import Anh1 from "../Assets/anh1.jpg"
-import Anh2 from "../Assets/anh2.jpg"
 import { Carousel } from "react-bootstrap";
 export default function BannerCarousel() {
-
     return (
         <Carousel>
             <Carousel.Item>

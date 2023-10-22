@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Row, Col } from "react-bootstrap";
 import logo from "../Assets/logo.png";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function Register() {
 
     const [Name, setName] = useState("");

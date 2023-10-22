@@ -4,11 +4,11 @@ import { Container, Form, FormGroup, FormLabel, InputGroup, Navbar } from "react
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
 export default function PostJob() {
     return (
-        <Container>
+        <Container style={{ marginBottom: '30px' }}>
             <Navbar />
-            <div className="job-background">
+            <div className="job-background" style={{ marginLeft: '100px' }}>
                 <div className="title">
-                    <h2>Post a Job</h2>
+                    <h1>Post a Job</h1>
                 </div>
             </div>
             <div className="container">

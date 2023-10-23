@@ -23,14 +23,14 @@ export default function Login() {
     return (
         <Row>
             <ToastContainer />
-            <Col style={{marginBottom: "20px", marginTop:"10px"}}>
+            <Col style={{ marginBottom: "20px", marginTop: "10px" }}>
 
                 <div
                     className="col-lg-6"
                     style={{
                         margin: "0 auto",
                         backgroundColor: "#f4f4eb",
-                        width :"40%",
+                        width: "40%",
                         height: "98%",
                         marginTop: "10px",
                         borderRadius: "15px",
@@ -40,8 +40,8 @@ export default function Login() {
                 >
                     <h1 className="text-center">Login</h1>
 
-                    <form className="Login" style={{backgroundColor: "#f4f4eb"}}>
-                        <Form onSubmit={handleSubmit} style={{backgroundColor: "#f4f4eb"}}>
+                    <form className="Login" style={{ backgroundColor: "#f4f4eb" }}>
+                        <Form onSubmit={handleSubmit} style={{ backgroundColor: "#f4f4eb" }}>
                             <Form.Group size="lg" controlId="email">
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control
@@ -64,12 +64,12 @@ export default function Login() {
                                 />
                             </Form.Group>
                         </Form>
-                        <div className="text-center">
+                        <div >
                             <div className="w-full flex items-center">
-                                <input type="checkbox" className="w-3 h-2 mr-2" />
-                                <p className="text-center mt-2">Remember me for 30 days</p>
+                                <input type="checkbox" className="w-3 h-2 " ></input>
+                                Remember me for 30 days
                             </div>
-                            <p className="text-right" style={{marginLeft:"350px"}}> <a href="fgp">Forgot password?</a> </p>
+                            <p className="text-right" style={{ marginLeft: "350px" }}> <a href="fgp">Forgot password?</a> </p>
                         </div>
 
                         <div className="w-full flex flex-col my-4">
@@ -85,7 +85,7 @@ export default function Login() {
                             marginBottom="30px"
                             onClick={() => { console.log('Google button clicked') }}
                         />
-                        <div className="mt-3" style={{marginLeft:"200px"}}>
+                        <div className="mt-3" style={{ marginLeft: "200px" }}>
                             <p className="text-left">Don't have an account?<a href="Register"> Sign up here</a> </p>
                         </div>
                     </form>

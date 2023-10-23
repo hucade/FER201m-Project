@@ -39,7 +39,7 @@ export default function HomePage() {
                                 </div>
                             </Col>
                         </Row>
-                        <Row className="d-flex justify-content-center">
+                        <Row className="d-flex justify-content-center m-3">
                             <Col xl={3} lg={3} md={4} sm={6}>
                                 <div className="single-services text-center mb-30">
                                     <div className="services-ion">

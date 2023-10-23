@@ -24,15 +24,15 @@ function Footer() {
                                 <li>
                                     <p>Address: Your address goes here, your demo address.</p>
                                 </li>
-                                <li><a href="#">Phone: +8880 44338899</a></li>
-                                <li><a href="#">Email: info@colorlib.com</a></li>
+                                <li><a href="#">Phone: +84 981818239</a></li>
+                                <li><a href="#">Email: group1@fpt.edu.vn</a></li>
                             </ul>
                         </div>
                         <div className="single-footer-caption mb-50">
                             <h4>Important Link</h4>
                             <ul>
                                 <li><a href="#">View Project</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="./contact">Contact Us</a></li>
                                 <li><a href="#">Testimonial</a></li>
                                 <li><a href="#">Properties</a></li>
                                 <li><a href="#">Support</a></li>

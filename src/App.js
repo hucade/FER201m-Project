@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom'
 import { Container, Row } from 'react-bootstrap'
-import { Header, JobDetail, JobListing, About, Contact, HomePage, PostJob, ApplyJobs, Footer, Login, Register } from "./View/Component/index"
+import { Header, JobDetail, JobListing, About, Contact, HomePage, PostJob, ApplyJobs, Footer, Login, Register, ForgotPassword } from "./View/Component/index"
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
           <Route path="/applyjob" element={<ApplyJobs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forgotPassword" element={<ForgotPassword />} />
         </Routes>
       </Row>
       <Footer></Footer>

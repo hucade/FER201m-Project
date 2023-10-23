@@ -30,7 +30,7 @@ export default function Login() {
                     style={{
                         margin: "0 auto",
                         backgroundColor: "#f4f4eb",
-                        width: "35%",
+                        width: "40%",
                         height: "98%",
                         marginTop: "10px",
                         borderRadius: "15px",
@@ -64,12 +64,12 @@ export default function Login() {
                                 />
                             </Form.Group>
                         </Form>
-                        <div className="">
+                        <div >
                             <div className="w-full flex items-center">
-                                <input type="checkbox" className="w-3 h-2 mr-2" />
+                                <input type="checkbox" className="w-3 h-2 " ></input>
                                 Remember me for 30 days
                             </div>
-                            <p className="text-right" style={{ marginLeft: "350px" }}> <a href="./forgotPassword">Forgot password?</a> </p>
+                            <p className="text-right" style={{ marginLeft: "350px" }}> <a href="fgp">Forgot password?</a> </p>
                         </div>
 
                         <div className="w-full flex flex-col my-4">

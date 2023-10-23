@@ -17,7 +17,7 @@ export default function JobDetail() {
                     />
                 </Col>
             </Row>
-            <Row>
+            <Row style={{ marginTop: "100px" }}>
                 <Col style={{ marginLeft: "60px" }}>
                     <Card>
                         <Card.Img src={icons} alt="Card image" style={{ width: "80px", height: "80px" }} />
@@ -70,10 +70,10 @@ export default function JobDetail() {
                             </Card.Body>
                         </Card>
                     </Row>
-                    <Row>
+                    <Row style={{ marginTop: "60px" }}>
                         <h3>Company Information</h3>
                         <h4>Colorlib</h4>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                        <p style={{paddingRight:"250px"}}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                         <div style={{display: "flex"}}>
                             <h4>Name: </h4><span style={{paddingTop:"6px", paddingLeft: "8px"}}>Colorlib</span>
                         </div>

@@ -64,8 +64,8 @@
             "logo": "https://www.xyzhealthcare.com/logo.png",
             "website": "https://fpt.edu.vn/",
             "staffnumber": 500,
-            "introduction": "FPT ARENA MULTIMEDIA FPT Arena Multimedia Art Training System under FPT Education Organization was established in 2004 to meet the need for high-quality human resources majoring in Multimedia Design and graphic design. This is a creative and innovative learning environment, giving students growth in personality and abilities. Currently, to meet development needs, we want to find candidates with Enthusiasm, Talent, and Qualifications to join hands in building a true educational environment. Personnel recruitment information for Ho Chi Minh City facility",
-            "location": "Lot E2a-7, Street D1, High-Tech Park, Long Thanh My Ward, District 9, Ho Chi Minh City",
+            "introduction": "FPT ARENA MULTIMEDIA FPT Arena Multimedia Art Training System under FPT Education Organization was established in 2004 to meet the need for high-quality human resources majoring in Multimedia Design and graphic design.",
+            "location": "Hoa Lac High Tech Park, Hanoi, Vietnam",
             "map": "https://www.google.com/maps/search/9+%C4%90.+D1+Ph%C6%B0%E1%BB%9Dng+T%C3%A2n+Ph%C3%BA+Qu%E1%BA%ADn+9+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/@10.84921,106.801557,15z?hl=vi&entry=ttu"
         }
     ],
@@ -84,6 +84,7 @@
             "id": 1,
             "company": 1,
             "title": "IT Instructor - Teaching Fullstack Programming",
+            "image":"images/job-list1.png",
             "salary": "Deal",
             "location": 2,
             "experience": "1 year",
@@ -104,6 +105,33 @@
             ],
             "status": 1,
             "createdate": "2023-17-10",
+            "expireday": "2023-18-10"
+        },
+        {
+            "id": 2,
+            "company": 1,
+            "title": "IT Instructor - Teaching Tester Programming",
+            "image":"images/job-list2.png",
+            "salary": "Deal",
+            "location": 2,
+            "experience": "1 year",
+            "quantity": 10,
+            "workform": 1,
+            "recruitmentdescription": {
+                "jobdescription": "Teaching about: Web programming with HTML/CSS/Javascript, ReactJS. Database design and programming.Java, C, PHP programming.Web programming with Spring framework, ASP.Net, API,...Mobile Programming with Flutter/Dar",
+                "requirements": "University or higher. Have experience developing applications and websites through real projects. Have good knowledge of programming languages (Javascript, Java, C, NodeJS, Python, Database, Dart,...) Logical thinking, programming thinking and Good systems thinking.",
+                "benefits": "Dynamic working environment, professional Have an attractive income Have the opportunity to participate in training activities to improve qualifications",
+                "worklocation": "391A, Nam Ky Khoi Nghia, Ward 7, District 3, City. Ho Chi Minh, District 3"
+            },
+            "contact": [
+                {
+                    "name": "Kieu Thanh Binh",
+                    "email": "ktb@gmail.com",
+                    "phonenumber": "0964000008"
+                }
+            ],
+            "status": 1,
+            "createdate": "17-10-2023",
             "expireday": "2023-18-10"
         }
     ],

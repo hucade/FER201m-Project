@@ -1,37 +1,36 @@
 import React from 'react';
-import { Container, Row, Nav } from 'react-bootstrap';
+import { Container, Row, Nav, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from "../Assets/logo.png";
-import './Header.scss'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.bundle'
-import 'bootstrap/dist/js/bootstrap'
+import '../Assets/scss/Header.scss'
 
-export default function HeaderStyle() {
+export default function Header() {
     return (
-        <header>
-            <Container>
-                <Row>
-                    <div className="inner">
-                        <div className="Logo">
-                            <Link to="../">
-                                <img src={logo} alt="" />
-                            </Link>
+        <Container fluid>
+            <header>
+                <Col style={{ padding: "0" }}>
+                    <Row>
+                        <div className="inner">
+                            <div className="Logo">
+                                <Link to="../">
+                                    <img src={logo} alt="" />
+                                </Link>
+                            </div>
+                            <div className="tab">
+                                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                                <Nav.Link as={Link} to="/JobListing">Find a Jobs </Nav.Link>
+                                <Nav.Link as={Link} to="/about">About</Nav.Link>
+                                <Nav.Link as={Link} to="/contact">Contacts</Nav.Link>
+                            </div>
+                            <div className='tab'>
+                                <Nav.Link as={Link} to="/register">Register</Nav.Link>
+                                <Nav.Link as={Link} to="/login">login</Nav.Link>
+                            </div>
                         </div>
-                        <div className="tab">
-                            <Nav.Link as={Link} to="/">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/">Find a Jobs </Nav.Link>
-                            <Nav.Link as={Link} to="/about">About</Nav.Link>
-                            <Nav.Link as={Link} to="/contact">Contacts</Nav.Link>                         
-                            <Nav.Link as={Link} to="/">Page</Nav.Link>
-                        </div>
-                        <div className='action'>
-                            
-                        </div>
-                    </div>
-                </Row>
-            </Container>
-        </header>
+                    </Row>
+                </Col>
+            </header>
+        </Container>
     );
 }
 

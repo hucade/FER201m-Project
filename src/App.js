@@ -3,6 +3,13 @@ import { Route, Routes } from 'react-router-dom'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Header, JobDetail, JobListing, About, Contact, HomePage, PostJob, ApplyJobs, Footer, Login, Register } from "./View/Component/index"
 
+import Index from "./View/Component/Company/Index";
+import Application from './View/Component/Company/ApplicantManagement';
+import Dashboard from './View/Component/Company/Dashboard';
+import PostNewJob from './View/Component/Company/Postjob';
+import Jobs from './View/Component/Company/Jobs';
+import Update from './View/Component/Company/Update';
+
 function App() {
   return (
     <Container fluid>
@@ -19,6 +26,14 @@ function App() {
             <Route path="/applyjob" element={<ApplyJobs />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/company" element={<Index />}>
+              <Route path="applicant-management" element={<Application />} />
+              <Route path='jobs' element={<Jobs />}>
+                <Route path='update/:id' element={<Update />} />
+              </Route>
+              <Route path="post-job" element={<PostNewJob />} />
+              <Route index element={<Dashboard />} />
+            </Route>
           </Routes>
         </Row>
         <Footer></Footer>

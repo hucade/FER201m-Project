@@ -69,7 +69,7 @@ export default function JobListing() {
                     <option value="">Category 1</option>
                     <option value="">Category 2</option>
                     <option value="">Category 3</option>
-                    <option value="">Category 4</option>
+                    <option value="">Category 44444</option>
                   </select>
                 </div>
                 <div
@@ -79,25 +79,21 @@ export default function JobListing() {
                   <div class="small-section-tittle2">
                     <h4>Job Type</h4>
                   </div>
-                  <label class="container">
+                  <label >
                     Full Time
                     <input type="checkbox" />
-                    <span class="checkmark"></span>
                   </label>
-                  <label class="container">
+                  <label >
                     Part Time
-                    <input type="checkbox" checked="checked active" />
-                    <span class="checkmark"></span>
+                    <input type="checkbox"  />
                   </label>
-                  <label class="container">
+                  <label >
                     Remote
                     <input type="checkbox" />
-                    <span class="checkmark"></span>
                   </label>
-                  <label class="container">
+                  <label >
                     Freelance
                     <input type="checkbox" />
-                    <span class="checkmark"></span>
                   </label>
                 </div>
               </div>

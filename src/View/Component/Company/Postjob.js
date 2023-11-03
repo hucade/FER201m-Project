@@ -6,7 +6,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import './PostJob.css'
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-export default function PostNewJob() {
+export default function PostJob() {
     const [validated, setValidated] = useState(false);
     const [data, setData] = useState({
         "id": null,

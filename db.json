@@ -87,9 +87,10 @@
             "image":"images/job-list1.png",
             "salary": "Deal",
             "location": 2,
-            "experience": "1 year",
+            "experience": 2,
+            "industry": 2,
             "quantity": 10,
-            "workform": 1,
+            "workform": 2,
             "recruitmentdescription": {
                 "jobdescription": "Teaching about: Web programming with HTML/CSS/Javascript, ReactJS. Database design and programming.Java, C, PHP programming.Web programming with Spring framework, ASP.Net, API,...Mobile Programming with Flutter/Dar",
                 "requirements": "University or higher. Have experience developing applications and websites through real projects. Have good knowledge of programming languages (Javascript, Java, C, NodeJS, Python, Database, Dart,...) Logical thinking, programming thinking and Good systems thinking.",
@@ -113,8 +114,9 @@
             "title": "IT Instructor - Teaching Tester Programming",
             "image":"images/job-list2.png",
             "salary": "Deal",
-            "location": 2,
-            "experience": "1 year",
+            "location": 1,
+            "experience": 1,
+            "industry": 1,
             "quantity": 10,
             "workform": 1,
             "recruitmentdescription": {
@@ -141,12 +143,30 @@
             "name": "Pending"
         },
         {
-            "id": 1,
+            "id": 2,
             "name": "Approved"
         },
         {
-            "id": 1,
+            "id": 3,
             "name": "Rejected"
+        }
+    ],
+    "experience": [
+        {
+            "id": 1,
+            "name": "1-2 Years"
+        },
+        {
+            "id": 2,
+            "name": "2-3 Years"
+        },
+        {
+            "id": 3,
+            "name": "3-6 Years"
+        },
+        {
+            "id": 4,
+            "name": "6+ Years"
         }
     ],
     "jobposition": [
@@ -191,19 +211,19 @@
             "locationName": "Hanoi"
         },
         {
-            "id": 1,
+            "id": 2,
             "locationName": "Ho Chi Minh"
         },
         {
-            "id": 1,
+            "id": 3,
             "locationName": "Binh Duong"
         },
         {
-            "id": 1,
+            "id": 4,
             "locationName": "Da Nang"
         },
         {
-            "id": 1,
+            "id": 5,
             "locationName": "Foreign"
         }
     ],

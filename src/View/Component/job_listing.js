@@ -7,12 +7,79 @@ import { Link } from "react-router-dom";
 import Banner from "../Assets/banner2.jpg";
 export default function JobListing() {
   const [jobs, setJobs] = useState([]);
+  const [Category, setCategory] = useState([]);
+  const [Workforms, setWorkforms] = useState([]);
+  const [Locations, setLocations] = useState([]);
+  const [Experiences, setExperiences] = useState([]);
+
+  const [selectedCategory, setSelectedCategory] = useState("0");
+  const [selectedWorkform, setSelectedWorkform] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState("0");
+  const [selectedExperience, setSelectedExperience] = useState([]);
   useEffect(() => {
     axios
       .get("http://localhost:9999/job")
       .then((res) => setJobs(res.data))
       .catch((error) => console.log(error));
+    axios
+      .get("http://localhost:9999/industry")
+      .then((res) => setCategory(res.data))
+      .catch((error) => console.log(error));
+    axios
+      .get("http://localhost:9999/workform")
+      .then((res) => setWorkforms(res.data))
+      .catch((error) => console.log(error));
+    axios
+      .get("http://localhost:9999/location")
+      .then((res) => setLocations(res.data))
+      .catch((error) => console.log(error));
+    axios
+      .get("http://localhost:9999/experience")
+      .then((res) => setExperiences(res.data))
+      .catch((error) => console.log(error));
   }, []);
+
+  const filterJobs = () => {
+    const filteredJobs = jobs.filter((job) => {
+      const categoryMatch =
+        selectedCategory === "0" || job.industry == selectedCategory;
+      const locationMatch =
+        selectedLocation === "0" || job.location == selectedLocation;
+      const experienceMatch =
+        selectedExperience.length === 0 ||
+        selectedExperience.includes(job.experience);
+
+      const workformMatch =
+        selectedWorkform.length === 0 ||
+        selectedWorkform.includes(job.workform);
+
+      return categoryMatch && locationMatch && experienceMatch && workformMatch;
+    });
+
+    return filteredJobs;
+  };
+  const handleExperienceChange = (e) => {
+    const itemId = parseInt(e.target.value);
+    const isChecked = e.target.checked;
+
+    if (isChecked) {
+      setSelectedExperience([...selectedExperience, itemId]);
+    } else {
+      setSelectedExperience(selectedExperience.filter((id) => id !== itemId));
+    }
+  };
+  const handleWorkformChange = (e) => {
+    const itemId = parseInt(e.target.value);
+    const isChecked = e.target.checked;
+
+    if (isChecked) {
+      setSelectedWorkform([...selectedWorkform, itemId]);
+    } else {
+      setSelectedWorkform(selectedWorkform.filter((id) => id !== itemId));
+    }
+  };
+
+  const filteredJobs = filterJobs();
   return (
     <Container>
       <Row>
@@ -64,12 +131,16 @@ export default function JobListing() {
                   <h4>Job Category</h4>
                 </div>
                 <div class="select-job-items2">
-                  <select name="select">
-                    <option value="">All Category</option>
-                    <option value="">Category 1</option>
-                    <option value="">Category 2</option>
-                    <option value="">Category 3</option>
-                    <option value="">Category 44444</option>
+                  <select
+                    name="select"
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                  >
+                    <option value="0">All Category</option>
+                    {Category.map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div
@@ -79,22 +150,16 @@ export default function JobListing() {
                   <div class="small-section-tittle2">
                     <h4>Job Type</h4>
                   </div>
-                  <label >
-                    Full Time
-                    <input type="checkbox" />
-                  </label>
-                  <label >
-                    Part Time
-                    <input type="checkbox"  />
-                  </label>
-                  <label >
-                    Remote
-                    <input type="checkbox" />
-                  </label>
-                  <label >
-                    Freelance
-                    <input type="checkbox" />
-                  </label>
+                  {Workforms.map((item) => (
+                    <label>
+                      {item.name}
+                      <input
+                        type="checkbox"
+                        value={item.id}
+                        onChange={(e) => handleWorkformChange (e)}
+                      />
+                    </label>
+                  ))}
                 </div>
               </div>
               <div class="single-listing">
@@ -102,41 +167,32 @@ export default function JobListing() {
                   <h4>Job Location</h4>
                 </div>
                 <div class="select-job-items2">
-                  <select name="select">
-                    <option value="">Anywhere</option>
-                    <option value="">Category 1</option>
-                    <option value="">Category 2</option>
-                    <option value="">Category 3</option>
-                    <option value="">Category 4</option>
+                  <select
+                    name="select"
+                    style={{ width: "201px" }}
+                    onChange={(e) => setSelectedLocation(e.target.value)}
+                  >
+                    <option value="0">Anywhere</option>
+                    {Locations.map((item) => (
+                      <option value={item.id}>{item.locationName}</option>
+                    ))}
                   </select>
                 </div>
-                <div
-                  class="select-Categories pt-80 pb-50"
-                  style={{ display: "grid" }}
-                >
-                  <div class="small-section-tittle2">
+                <div style={{ display: "grid" }}>
+                  <div>
                     <h4>Experience</h4>
                   </div>
-                  <label class="container">
-                    1-2 Years
-                    <input type="checkbox" />
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="container">
-                    2-3 Years
-                    <input type="checkbox" />
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="container">
-                    3-6 Years
-                    <input type="checkbox" />
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="container">
-                    6-more..
-                    <input type="checkbox" />
-                    <span class="checkmark"></span>
-                  </label>
+                  {Experiences.map((item) => (
+                    <label className="container" key={item.id}>
+                      {item.name}
+                      <input
+                        type="checkbox"
+                        value={item.id}
+                        onChange={(e) => handleExperienceChange(e)}
+                      />
+                      <span className="checkmark"></span>
+                    </label>
+                  ))}
                 </div>
               </div>
             </div>
@@ -147,7 +203,7 @@ export default function JobListing() {
             <Row>
               <Col>
                 <div style={{ display: "flex", justifyContent: "flex-start" }}>
-                  <span>39, 782 Jobs found</span>
+                  <span>{filteredJobs.length} jobs was found</span>
                 </div>
                 <div style={{ display: "flex", justifyContent: "flex-end" }}>
                   <span>Sort by</span>
@@ -161,7 +217,7 @@ export default function JobListing() {
               </Col>
             </Row>
             <Row>
-              {jobs.map((item) => (
+              {filteredJobs.map((item) => (
                 <Card
                   style={{ width: "1000px", padding: "10px", margin: "10px" }}
                 >

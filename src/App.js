@@ -6,7 +6,7 @@ import { Header, JobDetail, JobListing, About, Contact, HomePage, PostJob, Apply
 import Index from "./View/Component/Company/Index";
 import Application from './View/Component/Company/ApplicantManagement';
 import Dashboard from './View/Component/Company/Dashboard';
-import PostNewJob from './View/Component/Company/Postjob';
+import PostNewJob from './View/Component/Company/PostJob';
 import Jobs from './View/Component/Company/Jobs';
 import Update from './View/Component/Company/Update';
 

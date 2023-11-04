@@ -4,20 +4,22 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Aboutus from '../Assets/about.jpg'
+import Header from './Header';
 
 export default function About() {
-  return (
+  return (<>
+    <Header />
     <Container className="mt-4">
       <Row>
         <Col>
-         <img style={{ width: "100%", height: "400px" }} src={Aboutus} />
-          <h2 style={{marginTop:'20px'}}>About Us</h2>
-          <p style={{marginTop:'10px'}}>
+          <img style={{ width: "100%", height: "400px" }} src={Aboutus} />
+          <h2 style={{ marginTop: '20px' }}>About Us</h2>
+          <p style={{ marginTop: '10px' }}>
             Welcome to our company's "About Us" page. We are a dedicated team of professionals
             passionate about delivering high-quality products and services to our clients.
           </p>
         </Col>
-        
+
       </Row>
       <Row className="mt-4">
         <Col md={6}>
@@ -36,6 +38,7 @@ export default function About() {
         </Col>
       </Row>
     </Container>
+  </>
   );
 }
 

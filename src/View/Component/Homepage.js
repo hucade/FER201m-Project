@@ -5,6 +5,7 @@ import { FaSearch, FaPenAlt, FaDesktop, FaNewspaper, FaMobileAlt, FaHouzz, FaMic
 import "../Assets/scss/stylingSon.scss"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import backgroundImage from "../Assets/cv_bg.jpg"
+import Header from './Header';
 export default function HomePage() {
 
     const containerStyle = {
@@ -15,7 +16,8 @@ export default function HomePage() {
         paddingTop: '90px',
         paddingBottom: '120px',
     };
-    return (
+    return (<>
+        <Header></Header>
         <Container>
             <div className="container-fluid">
                 <Row className="row Banner">
@@ -164,5 +166,6 @@ export default function HomePage() {
                 </Container>
             </div>
         </Container>
+    </>
     );
 }

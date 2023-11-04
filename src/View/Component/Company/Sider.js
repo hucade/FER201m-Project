@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap/js/dist/dropdown'
 import { Button, Container, Row, Collapse, Col } from "react-bootstrap"
 import { Link } from "react-router-dom"

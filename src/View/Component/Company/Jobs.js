@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Col, Container, Row, Table } from "react-bootstrap";
+import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function Jobs() {
@@ -51,8 +51,8 @@ export default function Jobs() {
                                     <td>{j.location}</td>
                                     <td>{displayStatus(j.status)}</td>
                                     <td>{j.createdate}</td>
-                                    <td><Link to={"/update/"+j.id} >Update</Link>
-                                    <Link to={"/update/"+j.id} >Update</Link>
+                                    <td>
+                                        <Button as={Link} to={"/company/update/" + j.id}>Update</Button>
                                     </td>
                                 </tr>
                             )

@@ -6,7 +6,7 @@ import { Header, JobDetail, JobListing, About, Contact, HomePage, PostJob, Apply
 import Index from "./View/Component/Company/Index";
 import Application from './View/Component/Company/ApplicantManagement';
 import Dashboard from './View/Component/Company/Dashboard';
-import PostNewJob from './View/Component/Company/PostJob';
+import PostNewJob from './View/Component/Company/PostNewJob';
 import Jobs from './View/Component/Company/Jobs';
 import Update from './View/Component/Company/Update';
 
@@ -28,9 +28,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/company" element={<Index />}>
               <Route path="applicant-management" element={<Application />} />
-              <Route path='jobs' element={<Jobs />}>
-                <Route path='update/:id' element={<Update />} />
-              </Route>
+              <Route path='jobs' element={<Jobs />} />
+              <Route path='update/:id' element={<Update />} />
               <Route path="post-job" element={<PostNewJob />} />
               <Route index element={<Dashboard />} />
             </Route>

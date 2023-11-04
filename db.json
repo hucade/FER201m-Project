@@ -1,281 +1,265 @@
 {
-    "user": [
+  "user": [
+    {
+      "id": 1,
+      "username": "FsoftHoaLac",
+      "email": "FsoftHoaLac@gmail.com",
+      "password": "12345",
+      "createat": "2023-10-17",
+      "role": 2
+    },
+    {
+      "id": 2,
+      "username": "admin",
+      "email": "Fbinhsd@gmail.com",
+      "password": "12345",
+      "createat": "2023-10-17",
+      "role": 1
+    },
+    {
+      "id": 3,
+      "username": "company",
+      "email": "Fbt@gmail.com",
+      "password": "12345",
+      "createat": "2023-10-17",
+      "role": 3
+    }
+  ],
+  "role": [
+    {
+      "id": 1,
+      "name": "Admin"
+    },
+    {
+      "id": 2,
+      "name": "Applicant"
+    },
+    {
+      "id": 3,
+      "name": "Company"
+    }
+  ],
+  "applicant": [
+    {
+      "id": 1,
+      "userid": 1,
+      "image": "./image/app1",
+      "firstname": "Kieu Thanh",
+      "lastname": "Binh",
+      "dob": "2003-06-22",
+      "phonenumber": "0964000658",
+      "wishlist": [
         {
-            "id": 1,
-            "username": "FsoftHoaLac",
-            "email": "FsoftHoaLac@gmail.com",
-            "password": "12345",
-            "createat": "2023-10-17",
-            "role": 2
-        },
-        {
-            "id": 2,
-            "username": "admin",
-            "email": "Fbinhsd@gmail.com",
-            "password": "12345",
-            "createat": "2023-10-17",
-            "role": 1
-        },
-        {
-            "id": 3,
-            "username": "company",
-            "email": "Fbt@gmail.com",
-            "password": "12345",
-            "createat": "2023-10-17",
-            "role": 3
+          "id": 1,
+          "job": 1
         }
-    ],
-    "role": [
+      ]
+    }
+  ],
+  "company": [
+    {
+      "id": 1,
+      "userid": 3,
+      "name": "FPT University branch in Ho Chi Minh City",
+      "logo": "https://www.xyzhealthcare.com/logo.png",
+      "website": "https://fpt.edu.vn/",
+      "staffnumber": 500,
+      "introduction": "FPT ARENA MULTIMEDIA FPT Arena Multimedia Art Training System under FPT Education Organization was established in 2004 to meet the need for high-quality human resources majoring in Multimedia Design and graphic design.",
+      "location": "Hoa Lac High Tech Park, Hanoi, Vietnam",
+      "map": "https://www.google.com/maps/search/9+%C4%90.+D1+Ph%C6%B0%E1%BB%9Dng+T%C3%A2n+Ph%C3%BA+Qu%E1%BA%ADn+9+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/@10.84921,106.801557,15z?hl=vi&entry=ttu"
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "userid": 2,
+      "firstname": "Kieu Thanh",
+      "lastname": "Binh",
+      "dob": "2003-06-22",
+      "phonenumber": "0000086658"
+    }
+  ],
+  "job": [
+    {
+      "id": 1,
+      "company": 1,
+      "title": "IT Instructor - Teaching Fullstack Programming",
+      "image": "images/job-list1.png",
+      "salary": "Deal",
+      "location": "Hoa Lac High Tech Park, Hanoi, Vietnam",
+      "experience": "1 year",
+      "quantity": 10,
+      "workform": 1,
+      "recruitmentdescription": {
+        "jobdescription": "Teaching about: Web programming with HTML/CSS/Javascript, ReactJS. Database design and programming.Java, C, PHP programming.Web programming with Spring framework, ASP.Net, API,...Mobile Programming with Flutter/Dar",
+        "requirements": "University or higher. Have experience developing applications and websites through real projects. Have good knowledge of programming languages (Javascript, Java, C, NodeJS, Python, Database, Dart,...) Logical thinking, programming thinking and Good systems thinking.",
+        "benefits": "Dynamic working environment, professional Have an attractive income Have the opportunity to participate in training activities to improve qualifications",
+        "worklocation": "391A, Nam Ky Khoi Nghia, Ward 7, District 3, City. Ho Chi Minh, District 3"
+      },
+      "contact": [
         {
-            "id": 1,
-            "name": "Admin"
-        },
-        {
-            "id": 2,
-            "name": "Applicant"
-        },
-        {
-            "id": 3,
-            "name": "Company"
+          "name": "Kieu Thanh Binh",
+          "email": "ktb@gmail.com",
+          "phonenumber": "0964000008"
         }
-    ],
-    "applicant": [
+      ],
+      "status": 1,
+      "createdate": "17-10-2023",
+      "expireday": "18-10-2023"
+    },
+    {
+      "id": 2,
+      "company": 1,
+      "title": "IT Instructor - Teaching Tester Programming",
+      "image": "images/job-list2.png",
+      "salary": "Deal",
+      "location": "Hoa Lac High Tech Park, Hanoi, Vietnam",
+      "experience": "1 year",
+      "quantity": 10,
+      "workform": 1,
+      "recruitmentdescription": {
+        "jobdescription": "Teaching about: Web programming with HTML/CSS/Javascript, ReactJS. Database design and programming.Java, C, PHP programming.Web programming with Spring framework, ASP.Net, API,...Mobile Programming with Flutter/Dar",
+        "requirements": "University or higher. Have experience developing applications and websites through real projects. Have good knowledge of programming languages (Javascript, Java, C, NodeJS, Python, Database, Dart,...) Logical thinking, programming thinking and Good systems thinking.",
+        "benefits": "Dynamic working environment, professional Have an attractive income Have the opportunity to participate in training activities to improve qualifications",
+        "worklocation": "391A, Nam Ky Khoi Nghia, Ward 7, District 3, City. Ho Chi Minh, District 3"
+      },
+      "contact": [
         {
-            "id": 1,
-            "userid": 1,
-            "image":"./image/app1",
-            "firstname": "Kieu Thanh",
-            "lastname": "Binh",
-            "dob": "2003-06-22",
-            "phonenumber": "0964000658",
-            "wishlist": [
-                {
-                    "id": 1,
-                    "job": 1
-                }
-            ]
+          "name": "Kieu Thanh Binh",
+          "email": "ktb@gmail.com",
+          "phonenumber": "0964000008"
         }
-    ],
-    "company": [
-        {
-            "id": 1,
-            "userid": 3,
-            "name": "FPT University branch in Ho Chi Minh City",
-            "logo": "https://www.xyzhealthcare.com/logo.png",
-            "website": "https://fpt.edu.vn/",
-            "staffnumber": 500,
-            "introduction": "FPT ARENA MULTIMEDIA FPT Arena Multimedia Art Training System under FPT Education Organization was established in 2004 to meet the need for high-quality human resources majoring in Multimedia Design and graphic design.",
-            "location": "Hoa Lac High Tech Park, Hanoi, Vietnam",
-            "map": "https://www.google.com/maps/search/9+%C4%90.+D1+Ph%C6%B0%E1%BB%9Dng+T%C3%A2n+Ph%C3%BA+Qu%E1%BA%ADn+9+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/@10.84921,106.801557,15z?hl=vi&entry=ttu"
-        }
-    ],
-    "admin": [
-        {
-            "id": 1,
-            "userid": 2,
-            "firstname": "Kieu Thanh",
-            "lastname": "Binh",
-            "dob": "2003-06-22",
-            "phonenumber": "0000086658"
-        }
-    ],
-    "job": [
-        {
-            "id": 1,
-            "company": 1,
-            "title": "IT Instructor - Teaching Fullstack Programming",
-            "image":"images/job-list1.png",
-            "salary": "Deal",
-            "location": 2,
-            "experience": 2,
-            "industry": 2,
-            "quantity": 10,
-            "workform": 2,
-            "recruitmentdescription": {
-                "jobdescription": "Teaching about: Web programming with HTML/CSS/Javascript, ReactJS. Database design and programming.Java, C, PHP programming.Web programming with Spring framework, ASP.Net, API,...Mobile Programming with Flutter/Dar",
-                "requirements": "University or higher. Have experience developing applications and websites through real projects. Have good knowledge of programming languages (Javascript, Java, C, NodeJS, Python, Database, Dart,...) Logical thinking, programming thinking and Good systems thinking.",
-                "benefits": "Dynamic working environment, professional Have an attractive income Have the opportunity to participate in training activities to improve qualifications",
-                "worklocation": "391A, Nam Ky Khoi Nghia, Ward 7, District 3, City. Ho Chi Minh, District 3"
-            },
-            "contact": [
-                {
-                    "name": "Kieu Thanh Binh",
-                    "email": "ktb@gmail.com",
-                    "phonenumber": "0964000008"
-                }
-            ],
-            "status": 1,
-            "createdate": "17-10-2023",
-            "expireday": "18-10-2023"
-        },
-        {
-            "id": 2,
-            "company": 1,
-            "title": "IT Instructor - Teaching Tester Programming",
-            "image":"images/job-list2.png",
-            "salary": "Deal",
-            "location": 1,
-            "experience": 1,
-            "industry": 1,
-            "quantity": 10,
-            "workform": 1,
-            "recruitmentdescription": {
-                "jobdescription": "Teaching about: Web programming with HTML/CSS/Javascript, ReactJS. Database design and programming.Java, C, PHP programming.Web programming with Spring framework, ASP.Net, API,...Mobile Programming with Flutter/Dar",
-                "requirements": "University or higher. Have experience developing applications and websites through real projects. Have good knowledge of programming languages (Javascript, Java, C, NodeJS, Python, Database, Dart,...) Logical thinking, programming thinking and Good systems thinking.",
-                "benefits": "Dynamic working environment, professional Have an attractive income Have the opportunity to participate in training activities to improve qualifications",
-                "worklocation": "391A, Nam Ky Khoi Nghia, Ward 7, District 3, City. Ho Chi Minh, District 3"
-            },
-            "contact": [
-                {
-                    "name": "Kieu Thanh Binh",
-                    "email": "ktb@gmail.com",
-                    "phonenumber": "0964000008"
-                }
-            ],
-            "status": 1,
-            "createdate": "17-10-2023",
-            "expireday": "18-10-2023"
-        }
-    ],
-    "jobstatus": [
-        {
-            "id": 1,
-            "name": "Pending"
-        },
-        {
-            "id": 2,
-            "name": "Approved"
-        },
-        {
-            "id": 3,
-            "name": "Rejected"
-        }
-    ],
-    "experience": [
-        {
-            "id": 1,
-            "name": "1-2 Years"
-        },
-        {
-            "id": 2,
-            "name": "2-3 Years"
-        },
-        {
-            "id": 3,
-            "name": "3-6 Years"
-        },
-        {
-            "id": 4,
-            "name": "6+ Years"
-        }
-    ],
-    "jobposition": [
-        {
-            "id": 1,
-            "name": "Staff"
-        },
-        {
-            "id": 2,
-            "name": "Intern"
-        },
-        {
-            "id": 3,
-            "name": "Director"
-        },
-        {
-            "id": 4,
-            "name": "Manager"
-        }
-    ],
-    "industry": [
-        {
-            "id": 1,
-            "name": "IT Software Development"
-        },
-        {
-            "id": 2,
-            "name": "IT Hardware/Internet"
-        },
-        {
-            "id": 3,
-            "name": "Logistic"
-        },
-        {
-            "id": 4,
-            "name": "Marketing"
-        }
-    ],
-    "location": [
-        {
-            "id": 1,
-            "locationName": "Hanoi"
-        },
-        {
-            "id": 2,
-            "locationName": "Ho Chi Minh"
-        },
-        {
-            "id": 3,
-            "locationName": "Binh Duong"
-        },
-        {
-            "id": 4,
-            "locationName": "Da Nang"
-        },
-        {
-            "id": 5,
-            "locationName": "Foreign"
-        }
-    ],
-    "workform": [
-        {
-            "id": 1,
-            "name": "Part Time"
-        },
-        {
-            "id": 2,
-            "name": "Full Time"
-        },
-        {
-            "id": 3,
-            "name": "Internship"
-        }
-    ],
-    "application": [
-        {
-            "id": 1,
-            "applicant": 1,
-            "job": 1,
-            "CV": "https://bestonlineresume.com/resume/67dce19a-5f39-4bfe-b100-66e96058a28c/preview",
-            "applydate": "2023-17-10",
-            "status": 1
-        }
-    ],
-    "applicationstatus": [
-        {
-            "id": 1,
-            "name": "Pending"
-        },
-        {
-            "id": 1,
-            "name": "Approved"
-        },
-        {
-            "id": 1,
-            "name": "Rejected"
-        }
-    ],
-    "payment": [
-        {}
-    ],
-    "notification": [
-        {
-            "id": 1,
-            "sender": 1,
-            "receiver": 2,
-            "type": "",
-            "content": "",
-            "readstatus": 1
-        }
-    ]
+      ],
+      "status": 1,
+      "createdate": "17-10-2023",
+      "expireday": "18-10-2023"
+    },
+    {
+      "id": 3,
+      "company": 1,
+      "title": "hello",
+      "salary": 5,
+      "location": "asdf",
+      "position": 3,
+      "workform": 1,
+      "industry": 2,
+      "experience": "",
+      "quantity": 6,
+      "worklocation": "",
+      "recruitmentdescription": {
+        "jobdescription": "fasd",
+        "requirements": "asdf",
+        "benefits": "asdf"
+      },
+      "contact": {
+        "name": "asdf",
+        "email": "asdf@fasd",
+        "phonenumber": "0964686658"
+      },
+      "status": 1,
+      "createdate": "4/11/2023",
+      "expireday": "2023-11-29"
+    }
+  ],
+  "jobstatus": [
+    {
+      "id": 1,
+      "name": "Pending"
+    },
+    {
+      "id": 1,
+      "name": "Approved"
+    },
+    {
+      "id": 1,
+      "name": "Rejected"
+    }
+  ],
+  "jobposition": [
+    {
+      "id": 1,
+      "name": "Staff"
+    },
+    {
+      "id": 2,
+      "name": "Intern"
+    },
+    {
+      "id": 3,
+      "name": "Director"
+    },
+    {
+      "id": 4,
+      "name": "Manager"
+    }
+  ],
+  "industry": [
+    {
+      "id": 1,
+      "name": "IT Software Development"
+    },
+    {
+      "id": 2,
+      "name": "IT Hardware/Internet"
+    },
+    {
+      "id": 3,
+      "name": "Logistic"
+    },
+    {
+      "id": 4,
+      "name": "Marketing"
+    }
+  ],
+  "workform": [
+    {
+      "id": 1,
+      "name": "Part Time"
+    },
+    {
+      "id": 2,
+      "name": "Full Time"
+    },
+    {
+      "id": 3,
+      "name": "Internship"
+    }
+  ],
+  "application": [
+    {
+      "id": 1,
+      "applicant": 1,
+      "job": 1,
+      "CV": "https://bestonlineresume.com/resume/67dce19a-5f39-4bfe-b100-66e96058a28c/preview",
+      "applydate": "2023-17-10",
+      "status": 1
+    }
+  ],
+  "applicationstatus": [
+    {
+      "id": 1,
+      "name": "Pending"
+    },
+    {
+      "id": 1,
+      "name": "Approved"
+    },
+    {
+      "id": 1,
+      "name": "Rejected"
+    }
+  ],
+  "payment": [
+    {}
+  ],
+  "notification": [
+    {
+      "id": 1,
+      "sender": 1,
+      "receiver": 2,
+      "type": "",
+      "content": "",
+      "readstatus": 1
+    }
+  ]
 }

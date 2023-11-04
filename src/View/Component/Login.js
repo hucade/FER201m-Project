@@ -1,25 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Row, Col } from "react-bootstrap";
-import { Link } from 'react-router-dom';
 import '../Assets/scss/login.scss'
 import GoogleButton from 'react-google-button'
 export default function Login() {
-
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    function validateForm() {
-        return email.length > 0 && password.length > 0;
-    }
-    function handleSubmit(e) {
+    const [currUser, setCurrUser] = useState({});
+    const [UserList, setUserList] = useState([]);
+    const email = useRef(null);
+    const password = useRef(null);
+    useEffect(() => {
+        // setCurrUserId(3); // Update the currUserId value using the setter function
+        fetch(`http://localhost:9999/user`)
+            .then((res) => res.json())
+            .then((result) => {
+                setUserList(result);
+            });
+    }, []);
+    const HandleLogin = (e) => {
         e.preventDefault();
-    }
-    function handleRegiter(e) {
-        e.preventDefault();
-    }
+        let found = false;
 
+        UserList.map((u) => {
+            if (
+                u.email === email.current.value &&
+                u.password === password.current.value
+            ) {
+                found = true;
+                const currUser = {
+                    id: u.id,
+                    username: u.username,
+                    email: u.email,
+                    role: u.role,
+                };
+                sessionStorage.setItem("currUser", JSON.stringify(currUser));
+
+                if (u.role === 1) {
+                    window.location.href = "/admin";
+                } else if (u.role === 2) {
+                    window.location.href = "/";
+                } else if (u.role === 3) {
+                    window.location.href = "/company";
+                }
+            }
+        });
+
+        if (!found) {
+            toast.error("Incorrect username and password");
+        }
+    };
     return (
         <Row>
             <ToastContainer />
@@ -41,7 +71,7 @@ export default function Login() {
                     <h1 className="text-center">Login</h1>
 
                     <form className="Login" style={{ backgroundColor: "#f4f4eb" }}>
-                        <Form onSubmit={handleSubmit} style={{ backgroundColor: "#f4f4eb" }}>
+                        <Form style={{ backgroundColor: "#f4f4eb" }}>
                             <Form.Group size="lg" controlId="email">
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control
@@ -49,8 +79,7 @@ export default function Login() {
                                     type="email"
                                     className="form-control mt-1"
                                     placeholder="Enter email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    ref={email}
                                 />
                             </Form.Group>
                             <Form.Group size="lg" controlId="password">
@@ -59,8 +88,7 @@ export default function Login() {
                                     type="password"
                                     className="form-control mt-1"
                                     placeholder="Enter password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    ref={password}
                                 />
                             </Form.Group>
                         </Form>
@@ -77,7 +105,7 @@ export default function Login() {
                                 style={{ backgroundColor: "#343a40", border: "none" }}
                                 type="submit"
                                 className="form-control text-white"
-                                onClick={(e) => handleSubmit(e)} >Log in</button>
+                                onClick={(e) => HandleLogin(e)} >Log in</button>
                         </div>
                         <div class="or-seperator" ><i>or</i></div>
                         <GoogleButton
@@ -86,7 +114,7 @@ export default function Login() {
                             onClick={() => { console.log('Google button clicked') }}
                         />
                         <div className="mt-3" style={{ marginLeft: "200px" }}>
-                            <p className="text-left">Don't have an account?<a href="Register"> Sign up here</a> </p>
+                            <p className="text-left">Don't have an account?<a href="/Register"> Sign up here</a> </p>
                         </div>
                     </form>
                 </div>

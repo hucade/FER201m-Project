@@ -14,7 +14,6 @@ function App() {
   return (
     <Container fluid>
       <Col>
-        <Header></Header>
         <Row>
           <Routes>
             <Route path="/" element={<HomePage />} />

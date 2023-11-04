@@ -1,20 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function Update() {
-
+    let { id } = useParams();
     const [validated, setValidated] = useState(false);
     const [data, setData] = useState({
-        "id": null,
+        "id": id,
         "company": 1,
         "title": '',
         "salary": '',
         "location": '',
-        "position": 1,
-        "workform": 1,
-        "industry": 1,
+        "position": '',
+        "workform": '',
+        "industry": '',
         "experience": '',
         "quantity": '',
         "worklocation": '',
@@ -31,10 +31,17 @@ export default function Update() {
         }
         ,
         "status": 1,
-        "createdate": new Date().toLocaleDateString(),
+        "createdate": '',
         "expireday": ''
 
     })
+    console.log(id);
+    useEffect(() => {
+        fetch(`http://localhost:9999/job/${id}`)
+            .then(response => response.json())
+            .then(json => setData(json))
+    }, [id])
+    console.log(data);
     const handleSubmit = (event) => {
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
@@ -43,9 +50,9 @@ export default function Update() {
         }
         setValidated(true);
         if (form.checkValidity() === true) {
-            axios.post("http://localhost:9999/job", data)
+            axios.put("http://localhost:9999/job/"+id, data)
                 .then(res => {
-                    alert("Add Job successfully!")
+                    alert("Edit Job successfully!")
                 })
                 .then(navigate(`/company/jobs`))
                 .catch(err => console.log(err))
@@ -81,7 +88,7 @@ export default function Update() {
         <Col className="bg-dark-subtle  ">
             <Row className="bg-white">
                 <div id="label" className="text-center fs-1 font ">
-                    Post A Job
+                    Edit Job {id}
                 </div>
             </Row>
             <Row className="mt-3 bg-white ">
@@ -102,10 +109,9 @@ export default function Update() {
                                             name="title"
                                             type="text"
                                             placeholder="eg. Sennior UX Design"
-                                            defaultValue=""
+                                            value={data.title}
                                             onChange={e => {
                                                 setData({ ...data, title: e.target.value })
-                                                console.log(data);
                                             }}
                                         />
                                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -114,7 +120,6 @@ export default function Update() {
                                         <Form.Label>Position</Form.Label>
                                         <Form.Select aria-label="Please select" value={data.position} onChange={e => {
                                             setData({ ...data, position: parseInt(e.target.value, 10) })
-                                            console.log(data);
                                         }}>
                                             {
                                                 position.map(pos => {
@@ -127,10 +132,12 @@ export default function Update() {
                                     </Form.Group>
                                     <Form.Group as={Col} md="6" controlId="validationPosition">
                                         <Form.Label>Job Form</Form.Label>
-                                        <Form.Select aria-label="Please select" onChange={e => {
-                                            setData({ ...data, workform: parseInt(e.target.value, 10) })
-                                            console.log(data);
-                                        }}>
+                                        <Form.Select aria-label="Please select"
+
+                                            value={data.workform || ''}
+                                            onChange={e => {
+                                                setData({ ...data, workform: parseInt(e.target.value, 10) })
+                                            }}>
                                             {
                                                 jobform.map(form => {
                                                     return <option key={form.id} value={form.id}>{form.name}</option>
@@ -144,13 +151,14 @@ export default function Update() {
                                 <Row className="mb-3">
                                     <Form.Group as={Col} md="6" controlId="validationCustom03">
                                         <Form.Label>Industry</Form.Label>
-                                        <Form.Select aria-label="Please select" onChange={e => {
-                                            setData({ ...data, industry: parseInt(e.target.value, 10) })
-                                            console.log(data);
-                                        }}>
+                                        <Form.Select aria-label="Please select"
+                                            value={data.industry || ''}
+                                            onChange={e => {
+                                                setData({ ...data, industry: parseInt(e.target.value, 10) })
+                                            }}>
                                             {
                                                 industry.map(form => {
-                                                    return <option key={form.id} value={form.id}>{form.name}</option>
+                                                    return <option key={form.id} value={form.id} >{form.name}</option>
                                                 })
                                             }
                                         </Form.Select>
@@ -159,30 +167,40 @@ export default function Update() {
                                     </Form.Group>
                                     <Form.Group as={Col} md="6" controlId="validationCustom04">
                                         <Form.Label>Location</Form.Label>
-                                        <Form.Control type="text" placeholder="Location" required onChange={e => {
-                                            setData({ ...data, location: e.target.value })
-                                            console.log(data);
-                                        }} />
+                                        <Form.Control type="text"
+                                            placeholder="Location"
+                                            required
+                                            value={data.location}
+                                            onChange={e => {
+                                                setData({ ...data, location: e.target.value })
+                                            }} />
                                         <Form.Control.Feedback type="invalid">
                                             Please provide a valid location.
                                         </Form.Control.Feedback>
                                     </Form.Group>
                                     <Form.Group as={Col} md="6" controlId="validationCustom04">
                                         <Form.Label>Salary $</Form.Label>
-                                        <Form.Control type="number" placeholder="eg. Deal or Salary Range" min="0" required onChange={e => {
-                                            setData({ ...data, salary: parseInt(e.target.value, 10) })
-                                            console.log(data);
-                                        }} />
+                                        <Form.Control type="number"
+                                            placeholder="eg. Deal or Salary Range"
+                                            min="0"
+                                            required
+                                            value={data.salary}
+                                            onChange={e => {
+                                                setData({ ...data, salary: parseInt(e.target.value, 10) })
+                                            }} />
                                         <Form.Control.Feedback type="invalid">
                                             Please provide a valid salary.
                                         </Form.Control.Feedback>
                                     </Form.Group>
                                     <Form.Group as={Col} md="6" controlId="validationCustom04">
                                         <Form.Label>Number of Employees</Form.Label>
-                                        <Form.Control type="number" placeholder="Number of Employees" min="0" required onChange={e => {
-                                            setData({ ...data, quantity: parseInt(e.target.value, 10) })
-                                            console.log(data);
-                                        }} />
+                                        <Form.Control type="number"
+                                            placeholder="Number of Employees" min="0"
+                                            required
+                                            value={data.quantity}
+                                            onChange={e => {
+                                                setData({ ...data, quantity: parseInt(e.target.value, 10) })
+                                            }} />
                                         <Form.Control.Feedback type="invalid">
                                             Please provide a valid salary.
                                         </Form.Control.Feedback>
@@ -193,7 +211,6 @@ export default function Update() {
                                         <InputGroup>
                                             <Form.Control required as="textarea" aria-label="With textarea" placeholder="Description" value={data.recruitmentdescription.jobdescription} onChange={e => {
                                                 setData({ ...data, recruitmentdescription: { ...data.recruitmentdescription, jobdescription: e.target.value } })
-                                                console.log(data);
                                             }} />
                                             <Form.Control.Feedback type="invalid">
                                                 Please provide a valid description.
@@ -205,7 +222,6 @@ export default function Update() {
                                         <InputGroup>
                                             <Form.Control required as="textarea" aria-label="With textarea" placeholder="Description" value={data.recruitmentdescription.requirements} onChange={e => {
                                                 setData({ ...data, recruitmentdescription: { ...data.recruitmentdescription, requirements: e.target.value } })
-                                                console.log(data);
                                             }} />
                                             <Form.Control.Feedback type="invalid">
                                                 Please provide a valid requirement.
@@ -217,7 +233,6 @@ export default function Update() {
                                         <InputGroup>
                                             <Form.Control required as="textarea" aria-label="With textarea" placeholder="Benefits" value={data.recruitmentdescription.benefits} onChange={e => {
                                                 setData({ ...data, recruitmentdescription: { ...data.recruitmentdescription, benefits: e.target.value } })
-                                                console.log(data);
                                             }} />
                                             <Form.Control.Feedback type="invalid">
                                                 Please provide a valid benefits.
@@ -231,12 +246,9 @@ export default function Update() {
                                             required
                                             type="text"
                                             placeholder="Contact Person Name"
-                                            defaultValue=""
-
                                             value={data.contact.name}
                                             onChange={e => {
                                                 setData({ ...data, contact: { ...data.contact, name: e.target.value } })
-                                                console.log(data);
                                             }}
                                         />
                                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -250,7 +262,6 @@ export default function Update() {
                                             value={data.contact.email}
                                             onChange={e => {
                                                 setData({ ...data, contact: { ...data.contact, email: e.target.value } })
-                                                console.log(data);
                                             }}
                                         />
                                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -265,7 +276,6 @@ export default function Update() {
                                             value={data.contact.phonenumber}
                                             onChange={e => {
                                                 setData({ ...data, contact: { ...data.contact, phonenumber: e.target.value } })
-                                                console.log(data);
                                             }}
                                         />
                                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -276,9 +286,9 @@ export default function Update() {
                                             type="date"
                                             name="datepic"
                                             placeholder="DateRange"
+                                            value={data.expireday}
                                             onChange={e => {
                                                 setData({ ...data, expireday: e.target.value })
-                                                console.log(data);
                                             }}
                                             required
                                         />
@@ -294,7 +304,8 @@ export default function Update() {
                                         feedbackType="invalid"
                                     />
                                 </Form.Group>
-                                <Button className="mb-3" type="submit">Submit form</Button>
+                                <Button className="mb-3" type="submit">Save Change</Button>
+                                <Button className="mb-3 ms-2 " type="button" style={{backgroundColor:'gray'}}  as={Link} to="/company/jobs">Cancel</Button>
                             </Form>
                         </div>
 

@@ -241,11 +241,11 @@
       "name": "Pending"
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "Approved"
     },
     {
-      "id": 1,
+      "id": 3,
       "name": "Rejected"
     }
   ],

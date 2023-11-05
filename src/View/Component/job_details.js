@@ -115,7 +115,7 @@ export default function JobDetail() {
                   <Card.Text>
                     Application date: <span>12 Sep 2020</span>
                   </Card.Text>
-                  <Button variant="primary" style={{ marginLeft: "105px", marginTop: "18px" }}>
+                  <Button variant="primary" href={"http://localhost:3000/applyjob/"+id} style={{ marginLeft: "105px", marginTop: "18px" }}>
                     Apply Now
                   </Button>
                 </Card.Body>

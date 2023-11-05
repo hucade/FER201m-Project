@@ -1,10 +1,13 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useParams } from "react-router-dom";
 import Header from './Header';
 // import '../Assets/scss/ApplyJob.scss';
 
 
 export default function ApplyJobs() {
+    const { id } = useParams();
+    
     return (
         <>
             <Header />
@@ -41,7 +44,6 @@ export default function ApplyJobs() {
                             <Button
                                 type="submit"
                                 className="submit-button"
-
                             >
                                 Submit
                             </Button>

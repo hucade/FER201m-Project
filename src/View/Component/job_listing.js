@@ -30,31 +30,18 @@ export default function JobListing() {
       .get("http://localhost:9999/workform")
       .then((res) => setWorkforms(res.data))
       .catch((error) => console.log(error));
-    axios
-      .get("http://localhost:9999/location")
-      .then((res) => setLocations(res.data))
-      .catch((error) => console.log(error));
-    axios
-      .get("http://localhost:9999/experience")
-      .then((res) => setExperiences(res.data))
-      .catch((error) => console.log(error));
   }, []);
 
   const filterJobs = () => {
     const filteredJobs = jobs.filter((job) => {
       const categoryMatch =
         selectedCategory === "0" || job.industry == selectedCategory;
-      const locationMatch =
-        selectedLocation === "0" || job.location == selectedLocation;
-      const experienceMatch =
-        selectedExperience.length === 0 ||
-        selectedExperience.includes(job.experience);
 
       const workformMatch =
         selectedWorkform.length === 0 ||
         selectedWorkform.includes(job.workform);
 
-      return categoryMatch && locationMatch && experienceMatch && workformMatch;
+      return categoryMatch && workformMatch;
     });
 
     return filteredJobs;
@@ -105,7 +92,11 @@ export default function JobListing() {
             xl={4}
             lg={4}
             md={4}
-            style={{ placeItems: "center", padding: "20px", marginLeft: "80px" }}
+            style={{
+              placeItems: "center",
+              padding: "20px",
+              marginLeft: "80px",
+            }}
           >
             <Row>
               <Col>
@@ -165,39 +156,6 @@ export default function JobListing() {
                     ))}
                   </div>
                 </div>
-                <div class="single-listing">
-                  <div class="small-section-tittle2">
-                    <h4>Job Location</h4>
-                  </div>
-                  <div class="select-job-items2">
-                    <select
-                      name="select"
-                      style={{ width: "201px" }}
-                      onChange={(e) => setSelectedLocation(e.target.value)}
-                    >
-                      <option value="0">Anywhere</option>
-                      {Locations.map((item) => (
-                        <option value={item.id}>{item.locationName}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div style={{ display: "grid" }}>
-                    <div>
-                      <h4>Experience</h4>
-                    </div>
-                    {Experiences.map((item) => (
-                      <label className="container" key={item.id}>
-                        {item.name}
-                        <input
-                          type="checkbox"
-                          value={item.id}
-                          onChange={(e) => handleExperienceChange(e)}
-                        />
-                        <span className="checkmark"></span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
               </div>
             </Card>
           </Col>
@@ -205,7 +163,9 @@ export default function JobListing() {
             <Container>
               <Row>
                 <Col>
-                  <div style={{ display: "flex", justifyContent: "flex-start" }}>
+                  <div
+                    style={{ display: "flex", justifyContent: "flex-start" }}
+                  >
                     <span>{filteredJobs.length} jobs was found</span>
                   </div>
                   <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -246,7 +206,6 @@ export default function JobListing() {
           </Col>
         </Row>
       </Container>
-
     </>
   );
 }

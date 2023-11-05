@@ -141,30 +141,6 @@ export default function HomePage() {
                     </Container>
                 </div>
             </div>
-            <div className="online-cv cv-bg section-overly" style={containerStyle}>
-                <Container>
-                    <Row className="justify-content-center">
-                        <Col xl={10}>
-                            <div className="cv-caption text-center">
-                                <p className="pera2">Make a Difference with Your Online Resume!</p>
-                                <Button href="./applyjob" className="border-btn2 border-btn4">Upload your cv</Button>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-            <div className="online-cv cv-bg section-overly" style={containerStyle}>
-                <Container>
-                    <Row className="justify-content-center">
-                        <Col xl={10}>
-                            <div className="cv-caption text-center">
-                                <p className="pera2">Make a Difference with Your Online Resume!</p>
-                                <Button href="./postjob" className="border-btn2 border-btn4">Post A Job</Button>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
         </Container>
     </>
     );

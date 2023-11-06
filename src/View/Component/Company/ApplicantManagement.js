@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 export default function Application() {
     const [application, setApplication] = useState([])
@@ -32,7 +31,7 @@ export default function Application() {
             .then((res) => setjob(res.data))
             .catch((error) => console.log(error));
 
-    }, [])
+    }, [parsedObject.id])
     function displayStatus(s) {
         if (s === 1) {
             return <span style={{ color: "#cdcd13", fontWeight: "bolder" }}> Pending</span>
@@ -89,8 +88,6 @@ export default function Application() {
 
                             {application.map((app) => {
                                 const relatedJob = getJobInfo(app.job);
-
-                                // Check if there's a related job for this application
                                 if (relatedJob) {
                                     return (
                                         <tr key={app.id}>

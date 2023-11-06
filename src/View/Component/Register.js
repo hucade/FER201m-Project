@@ -6,7 +6,7 @@ import { Link, useNavigate} from "react-router-dom";
 
 export default function Register() {
     const [id, setId] = useState("");
-    const [userName, setUserName] = useState("");
+    const [username, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
@@ -31,7 +31,7 @@ export default function Register() {
           const IsValidate = () => {
             let isProceed = true;
             let errorMessage = "Please enter a value in ";
-            if (userName === null || userName === "") {
+            if (username === null || username === "") {
               isProceed = false;
               errorMessage += "User Name ";
             }
@@ -59,9 +59,10 @@ export default function Register() {
           const handleSubmit = (e) => {
             e.preventDefault();
             let regObj = {
-                userName,
+                username,
                 email,
                 password,
+                phone,
                 role,
 
             };
@@ -97,7 +98,7 @@ export default function Register() {
                                     <div className="col-lg-6">
                                         <div className="form-group">
                                             <label>User Name <span className="errmsg" style={{ color: "red" }}>*</span></label>
-                                            <input value={userName} onChange={e => setUserName(e.target.value)} className="form-control"></input>
+                                            <input value={username} onChange={e => setUserName(e.target.value)} className="form-control"></input>
                                         </div>
                                     </div>
                                     <div className="col-lg-6">

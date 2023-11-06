@@ -26,7 +26,7 @@ export default function Login() {
             <Col style={{ marginBottom: "20px", marginTop: "10px" }}>
 
                 <div
-                    className="col-lg-6"
+                    className="offset-lg-3 col-lg-6"
                     style={{
                         margin: "0 auto",
                         backgroundColor: "#f4f4eb",
@@ -69,7 +69,7 @@ export default function Login() {
                                 <input type="checkbox" className="w-3 h-2 " ></input>
                                 Remember me for 30 days
                             </div>
-                            <p className="text-right" style={{ marginLeft: "350px" }}> <a href="fgp">Forgot password?</a> </p>
+                            <p className="text-end" style={{ marginLeft: "350px" }}> <a href="fgp">Forgot password?</a> </p>
                         </div>
 
                         <div className="w-full flex flex-col my-4">

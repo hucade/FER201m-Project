@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 export default function Jobs() {
     const [job, setJob] = useState([])
     const [filter, setFilter] = useState(0)
+    const {id} = sessionStorage.getItem("currUser")
+    console.log(id);
     useEffect(() => {
         axios.get("http://localhost:9999/job")
             .then(res => {

@@ -36,8 +36,8 @@ export default function HomePage() {
                     <Container>
                         <Row>
                             <Col lg={12}>
-                                <div className="section-tittle text-center">
-                                    <h2 style={{ marginBottom: '50px' }}>Browse Top Categories</h2>
+                                <div style={{ textDecoration: 'none' }} className="section-tittle text-center">
+                                    <h2 style={{ marginBottom: '50px', color: '#550055' }}>Browse Top Categories</h2>
                                 </div>
                             </Col>
                         </Row>
@@ -47,8 +47,8 @@ export default function HomePage() {
                                     <div className="services-ion">
                                         <span><FaPenAlt size='5rem' /></span>
                                     </div>
-                                    <div className="services-cap">
-                                        <h5><a href="./JobListing">Design & Creative</a></h5>
+                                    <div className="services-cap" >
+                                        <h5><a href="./JobListing" style={{ textDecoration: 'none', color: '#550055' }}>Design & Creative</a></h5>
                                         <span>(653)</span>
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@ export default function HomePage() {
                                         <span><FaDesktop size='5rem' /></span>
                                     </div>
                                     <div className="services-cap">
-                                        <h5><a href="./JobListing">Design & Development</a></h5>
+                                        <h5><a href="./JobListing" style={{ textDecoration: 'none', color: '#550055' }}>Design & Development</a></h5>
                                         <span>(658)</span>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@ export default function HomePage() {
                                         <span><FaNewspaper size='5rem' /></span>
                                     </div>
                                     <div className="services-cap">
-                                        <h5><a href="./JobListing">Sales & Marketing</a></h5>
+                                        <h5><a href="./JobListing" style={{ textDecoration: 'none', color: '#550055' }}>Sales & Marketing</a></h5>
                                         <span>(658)</span>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@ export default function HomePage() {
                                         <span><FaMobileAlt size='5rem' /></span>
                                     </div>
                                     <div className="services-cap">
-                                        <h5><a href="./JobListing">Mobile Application</a></h5>
+                                        <h5><a href="./JobListing" style={{ textDecoration: 'none', color: '#550055' }}>Mobile Application</a></h5>
                                         <span>(658)</span>
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@ export default function HomePage() {
                                         <span><FaHouzz size='5rem' /></span>
                                     </div>
                                     <div className="services-cap">
-                                        <h5><a href="./JobListing">Construction</a></h5>
+                                        <h5><a href="./JobListing" style={{ textDecoration: 'none', color: '#550055' }}>Construction</a></h5>
                                         <span>(658)</span>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@ export default function HomePage() {
                                         <span><FaMicrochip size='5rem' /></span>
                                     </div>
                                     <div className="services-cap">
-                                        <h5><a href="./JobListing">Information Technology</a></h5>
+                                        <h5><a href="./JobListing" style={{ textDecoration: 'none', color: '#550055' }}>Information Technology</a></h5>
                                         <span>(658)</span>
                                     </div>
                                 </div>
@@ -114,7 +114,7 @@ export default function HomePage() {
                                         <span><FaLaptopHouse size='5rem' /></span>
                                     </div>
                                     <div className="services-cap">
-                                        <h5><a href="./JobListing">Real Estate</a></h5>
+                                        <h5><a href="./JobListing" style={{ textDecoration: 'none', color: '#550055' }}>Real Estate</a></h5>
                                         <span>(658)</span>
                                     </div>
                                 </div>
@@ -125,7 +125,7 @@ export default function HomePage() {
                                         <span><FaRegHandPaper size='5rem' /></span>
                                     </div>
                                     <div className="services-cap">
-                                        <h5><a href="./JobListing">Content Writer</a></h5>
+                                        <h5><a href="./JobListing" style={{ textDecoration: 'none', color: '#550055' }}>Content Writer</a></h5>
                                         <span>(658)</span>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@ export default function HomePage() {
                         <Row>
                             <Col lg={12}>
                                 <div className="browse-btn2 text-center mt-50">
-                                    <a href="./JobListing" className="border-btn2">Browse All Sectors</a>
+                                    <a href="./JobListing" className="border-btn2" style={{ textDecoration: 'none', color: '#550055' }}>Browse All Sectors</a>
                                 </div>
                             </Col>
                         </Row>

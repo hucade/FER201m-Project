@@ -42,7 +42,6 @@ function App() {
               <Route path="user" element={<User />} />
               <Route index element={<aDashbroard />} />
             </Route>
-
           </Routes>
         </Row>
         <Footer></Footer>

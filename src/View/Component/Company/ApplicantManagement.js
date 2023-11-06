@@ -8,6 +8,8 @@ export default function Application() {
     const [applicant, setApplicant] = useState([])
     const [job, setjob] = useState([])
 
+    const isUserLoggedIn = sessionStorage.getItem("currUser");
+    const parsedObject = JSON.parse(isUserLoggedIn);
     const [filter, setFilter] = useState(0)
     useEffect(() => {
         axios.get("http://localhost:9999/application")
@@ -26,7 +28,7 @@ export default function Application() {
             .then((res) => setApplicant(res.data))
             .catch((error) => console.log(error));
         axios
-            .get("http://localhost:9999/job")
+            .get("http://localhost:9999/job?company=" + parsedObject.id)
             .then((res) => setjob(res.data))
             .catch((error) => console.log(error));
 
@@ -41,22 +43,22 @@ export default function Application() {
         }
     }
 
-    const getApplicantinfor = (companyId) => {
+    const getApplicantInfo = (companyId) => {
         return applicant.find((company) => company.id === companyId);
     };
-    const getJobInfor = (companyId) => {
+    const getJobInfo = (companyId) => {
         return job.find((company) => company.id === companyId);
     };
 
     const handleApp = (id, s) => {
         const updatedApplication = application.map((a) => {
             if (a.id === id) {
-              return { ...a, status: s };
+                return { ...a, status: s };
             }
             return a;
-          });
-        
-          setApplication(updatedApplication);
+        });
+
+        setApplication(updatedApplication);
         axios.patch(`http://localhost:9999/application/${id}`, { status: s })
             .then((response) => {
                 // Handle the response as needed.
@@ -84,32 +86,37 @@ export default function Application() {
                             </tr>
                         </thead>
                         <tbody>
-                            {application.map((j) => (
-                                <tr key={j.id}>
-                                    <td>{j.id}</td>
-                                    <td>{getApplicantinfor(j.applicant)?.lastname}</td>
-                                    <td>{getJobInfor(j.job)?.title}</td>
-                                    <td><a href={j.CV}>Link CV</a></td>
-                                    <td>{j.applydate}</td>
-                                    <td>{displayStatus(j.status)}</td>
-                                    <td>
-                                        {j.status===1 ? (
-                                            <>
-                                                <Button onClick={() =>handleApp(j.id, 2)}>Approve</Button>
-                                                <span>&nbsp;</span>
-                                                <Button onClick={() =>handleApp(j.id, 3)} >Reject</Button>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <div></div>
-                                            </>
-                                        )}
-                                    </td>
-                                </tr>
-                            )
 
-                            )
-                            }
+                            {application.map((app) => {
+                                const relatedJob = getJobInfo(app.job);
+
+                                // Check if there's a related job for this application
+                                if (relatedJob) {
+                                    return (
+                                        <tr key={app.id}>
+                                            <td>{app.id}</td>
+                                            <td>{getApplicantInfo(app.applicant)?.lastname}</td>
+                                            <td>{relatedJob.title}</td>
+                                            <td><a href={app.CV}>Link CV</a></td>
+                                            <td>{app.applydate}</td>
+                                            <td>{displayStatus(app.status)}</td>
+                                            <td>
+                                                {app.status === 1 ? (
+                                                    <>
+                                                        <Button onClick={() => handleApp(app.id, 2)}>Approve</Button>
+                                                        <span>&nbsp;</span>
+                                                        <Button onClick={() => handleApp(app.id, 3)}>Reject</Button>
+                                                    </>
+                                                ) : (
+                                                    <div></div>
+                                                )}
+                                            </td>
+                                        </tr>
+                                    );
+                                } else {
+                                    return null; // No matching job found for this application
+                                }
+                            })}
                         </tbody>
                     </Table>
                 </Col>

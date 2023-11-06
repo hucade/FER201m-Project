@@ -275,6 +275,58 @@
       "status": 2,
       "createdate": "4/11/2023",
       "expireday": "2023-11-29"
+    },
+    {
+      "id": 4,
+      "company": 7,
+      "title": "asdf",
+      "salary": 4,
+      "location": "asdf",
+      "position": 4,
+      "workform": 1,
+      "industry": 1,
+      "experience": "",
+      "quantity": 4,
+      "worklocation": "",
+      "recruitmentdescription": {
+        "jobdescription": "asdf",
+        "requirements": "asdf",
+        "benefits": "asdf"
+      },
+      "contact": {
+        "name": "kminchelle",
+        "email": "asdf@asdf",
+        "phonenumber": "0986565566"
+      },
+      "status": 1,
+      "createdate": "6/11/2023",
+      "expireday": "2023-11-21"
+    },
+    {
+      "id": 5,
+      "company": 7,
+      "title": "asdf",
+      "salary": 5,
+      "location": "Hoa Lac High Tech Park, Hanoi, Vietnam",
+      "position": 4,
+      "workform": 3,
+      "industry": 4,
+      "experience": "",
+      "quantity": 5,
+      "worklocation": "",
+      "recruitmentdescription": {
+        "jobdescription": "asdf",
+        "requirements": "asdf",
+        "benefits": "asdf"
+      },
+      "contact": {
+        "name": "asdf",
+        "email": "asdf@3dfs",
+        "phonenumber": "0656565611"
+      },
+      "status": 1,
+      "createdate": "6/11/2023",
+      "expireday": "2023-11-08"
     }
   ],
   "jobstatus": [

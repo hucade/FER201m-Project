@@ -6,8 +6,11 @@ import { Link } from "react-router-dom";
 export default function Jobs() {
     const [job, setJob] = useState([])
     const [filter, setFilter] = useState(0)
+    const isUserLoggedIn = sessionStorage.getItem("currUser");
+    const parsedObject = JSON.parse(isUserLoggedIn);
+    console.log(parsedObject.id);
     useEffect(() => {
-        axios.get("http://localhost:9999/job")
+        axios.get("http://localhost:9999/job?company="+parsedObject.id)
             .then(res => {
                 if (filter === 0) {
                     setJob(res.data)
@@ -16,8 +19,7 @@ export default function Jobs() {
                 }
             })
             .catch(err => console.log(err))
-    }, [filter])
-    console.log(job);
+    }, [filter,parsedObject.id])
     function displayStatus(s) {
         if (s === 1) {
             return <span style={{ color: "#cdcd13", fontWeight: "bolder" }}> Pending</span>
@@ -27,7 +29,6 @@ export default function Jobs() {
             return <span style={{ color: "red", fontWeight: "bolder" }}> Rejected</span>
         }
     }
-    console.log(filter);
     return (
         <Container>
             <Row>

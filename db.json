@@ -403,11 +403,19 @@
     },
     {
       "userid": 8,
-      "job": "1",
+      "job": 1,
       "CV": "https://chat.openai.com/",
       "applydate": "11/6/2023",
       "applicationstatus": 1,
       "id": 2
+    },
+    {
+      "userid": 8,
+      "job": 5,
+      "CV": "ádasd",
+      "applydate": "11/6/2023",
+      "applicationstatus": 1,
+      "id": 3
     }
   ],
   "applicationstatus": [

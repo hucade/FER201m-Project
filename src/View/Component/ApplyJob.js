@@ -18,7 +18,7 @@ export default function ApplyJobs() {
 
         const formData = {
             userid: parsedObject.id,
-            job: id,
+            job: parseInt(id),
             CV: CV,
             applydate: new Date().toLocaleDateString(),
             applicationstatus: 1,

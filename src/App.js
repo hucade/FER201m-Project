@@ -9,6 +9,7 @@ import Dashboard from './View/Component/Company/Dashboard';
 import PostNewJob from './View/Component/Company/PostNewJob';
 import Jobs from './View/Component/Company/Jobs';
 import Update from './View/Component/Company/Update';
+import Profile from './View/Component/PersonalProfile';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
+            <Route path="/profile" element={<Profile />} />
+
             <Route path="/contact" element={<Contact />} />
             <Route path="/jobdetail/:id" element={<JobDetail />} />
             <Route path="/JobListing" element={<JobListing />} />

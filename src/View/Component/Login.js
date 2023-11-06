@@ -7,7 +7,6 @@ import '../Assets/scss/login.scss'
 import GoogleButton from 'react-google-button'
 import Header from "./Header";
 export default function Login() {
-    const [currUser, setCurrUser] = useState({});
     const [UserList, setUserList] = useState([]);
     const email = useRef(null);
     const password = useRef(null);
@@ -19,35 +18,16 @@ export default function Login() {
                 setUserList(result);
             });
     }, []);
-    const HandleLogin = (e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
-        let found = false;
+        let foundUser = UserList.find((u) =>
+            u.email === email.current.value && u.password === password.current.value
+        );
 
-        UserList.map((u) => {
-            if (
-                u.email === email.current.value &&
-                u.password === password.current.value
-            ) {
-                found = true;
-                const currUser = {
-                    id: u.id,
-                    username: u.username,
-                    email: u.email,
-                    role: u.role,
-                };
-                sessionStorage.setItem("currUser", JSON.stringify(currUser));
-
-                if (u.role === 1) {
-                    window.location.href = "/admin";
-                } else if (u.role === 2) {
-                    window.location.href = "/";
-                } else if (u.role === 3) {
-                    window.location.href = "/company";
-                }
-            }
-        });
-
-        if (!found) {
+        if (foundUser) {
+            sessionStorage.setItem("currUser", JSON.stringify(foundUser));
+            window.location.href = "/";
+        } else {
             toast.error("Incorrect username and password");
         }
     };
@@ -107,7 +87,7 @@ export default function Login() {
                                     style={{ backgroundColor: "#343a40", border: "none" }}
                                     type="submit"
                                     className="form-control text-white"
-                                    onClick={(e) => HandleLogin(e)} >Log in</button>
+                                    onClick={(e) => handleLogin(e)} >Log in</button>
                             </div>
                             <div class="or-seperator" ><i>or</i></div>
                             <GoogleButton

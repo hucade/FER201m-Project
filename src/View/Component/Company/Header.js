@@ -7,7 +7,7 @@ export default function Header() {
         <>
             <Navbar bg="dark" data-bs-theme="dark">
                 <Container fluid>
-                    <Navbar.Brand href="#home"><img src={logo} alt=''/></Navbar.Brand>
+                    <Navbar.Brand href="http://localhost:3000"><img src={logo} alt=''/></Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/company">Dashboard</Nav.Link>
                         <Nav.Link as={Link} to="/company/jobs">Jobs</Nav.Link>

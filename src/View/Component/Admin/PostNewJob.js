@@ -8,12 +8,9 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 export default function PostNewJob() {
     const [validated, setValidated] = useState(false);
-    
-    const isUserLoggedIn = sessionStorage.getItem("currUser");
-    const parsedObject = JSON.parse(isUserLoggedIn);
     const [data, setData] = useState({
         "id": null,
-        "company": parsedObject.id,
+        "company": 1,
         "title": '',
         "salary": '',
         "location": '',

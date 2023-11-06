@@ -6,11 +6,8 @@ import { Link } from "react-router-dom";
 export default function Jobs() {
     const [job, setJob] = useState([])
     const [filter, setFilter] = useState(0)
-    const isUserLoggedIn = sessionStorage.getItem("currUser");
-    const parsedObject = JSON.parse(isUserLoggedIn);
-    console.log(parsedObject.id);
     useEffect(() => {
-        axios.get("http://localhost:9999/job?company="+parsedObject.id)
+        axios.get("http://localhost:9999/job")
             .then(res => {
                 if (filter === 0) {
                     setJob(res.data)
@@ -19,7 +16,8 @@ export default function Jobs() {
                 }
             })
             .catch(err => console.log(err))
-    }, [filter,parsedObject.id])
+    }, [filter])
+    console.log(job);
     function displayStatus(s) {
         if (s === 1) {
             return <span style={{ color: "#cdcd13", fontWeight: "bolder" }}> Pending</span>
@@ -29,6 +27,7 @@ export default function Jobs() {
             return <span style={{ color: "red", fontWeight: "bolder" }}> Rejected</span>
         }
     }
+    console.log(filter);
     return (
         <Container>
             <Row>
@@ -53,7 +52,7 @@ export default function Jobs() {
                                     <td>{displayStatus(j.status)}</td>
                                     <td>{j.createdate}</td>
                                     <td>
-                                        <Button as={Link} to={"/company/update/" + j.id}>Update</Button>
+                                        <Button as={Link} to={"/admin/update/" + j.id}>Detail</Button>
                                     </td>
                                 </tr>
                             )

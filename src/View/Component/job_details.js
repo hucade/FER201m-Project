@@ -10,6 +10,12 @@ export default function JobDetail() {
   const { id } = useParams();
   const [job, setJob] = useState({});
   const [company, setCompany] = useState({});
+  const [application, setAplication] = useState([]);
+  const isUserLoggedIn = sessionStorage.getItem("currUser");
+  const parsedObject = JSON.parse(isUserLoggedIn);
+  const isAlreadyApplied = application.some(
+    (app) => app.userid === parsedObject.id && app.job === id
+  );
   useEffect(() => {
     axios
       .get("http://localhost:9999/job/" + id)
@@ -19,7 +25,12 @@ export default function JobDetail() {
       .get("http://localhost:9999/company/" + job.company)
       .then((res) => setCompany(res.data))
       .catch((error) => console.log(error));
+    axios
+      .get("http://localhost:9999/application")
+      .then((res) => setAplication(res.data))
+      .catch((error) => console.log(error));
   }, [id, job.company]);
+
   return (
     <>
       <Header />
@@ -76,7 +87,7 @@ export default function JobDetail() {
               <Card style={{ width: "23rem" }}>
                 <Card.Img
                   variant="top"
-                  src={"http://localhost:3000/" + job.image}
+                  src={company.logo}
                   alt="image"
                   style={{ width: "120px", height: "120px" }}
                 />
@@ -115,9 +126,24 @@ export default function JobDetail() {
                   <Card.Text>
                     Application date: <span>12 Sep 2020</span>
                   </Card.Text>
-                  <Button variant="primary" href={"http://localhost:3000/applyjob/"+id} style={{ marginLeft: "105px", marginTop: "18px" }}>
-                    Apply Now
-                  </Button>
+
+                  {isAlreadyApplied ? (
+                    <Button
+                      variant="primary"
+                      disabled
+                      style={{ marginLeft: "105px", marginTop: "18px", background:"red" }}
+                    >
+                      Applied
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="primary"
+                      href={"http://localhost:3000/applyjob/" + id}
+                      style={{ marginLeft: "105px", marginTop: "18px" }}
+                    >
+                      Apply Now
+                    </Button>
+                  )}
                 </Card.Body>
               </Card>
             </Row>

@@ -1,25 +1,20 @@
-import { Col, Container, Row } from "react-bootstrap";
-import { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import './PostJob.css'
-import axios from 'axios';
-import { useNavigate } from "react-router-dom";
-export default function PostNewJob() {
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
+import { Link, useNavigate, useParams } from "react-router-dom";
+
+export default function Update() {
+    let { id } = useParams();
     const [validated, setValidated] = useState(false);
-    
-    const isUserLoggedIn = sessionStorage.getItem("currUser");
-    const parsedObject = JSON.parse(isUserLoggedIn);
     const [data, setData] = useState({
-        "id": null,
-        "company": parsedObject.id,
+        "id": id,
+        "company": 1,
         "title": '',
         "salary": '',
         "location": '',
-        "position": 1,
-        "workform": 1,
-        "industry": 1,
+        "position": '',
+        "workform": '',
+        "industry": '',
         "experience": '',
         "quantity": '',
         "worklocation": '',
@@ -35,11 +30,35 @@ export default function PostNewJob() {
             "phonenumber": ''
         }
         ,
-        "status": 1,
-        "createdate": new Date().toLocaleDateString(),
+        "status": '',
+        "createdate": '',
         "expireday": ''
 
     })
+    console.log(id);
+    useEffect(() => {
+        fetch(`http://localhost:9999/job/${id}`)
+            .then(response => response.json())
+            .then(json => setData(json))
+    }, [id])
+    console.log(data);
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        setValidated(true);
+        if (form.checkValidity() === true) {
+            axios.put("http://localhost:9999/job/" + id, data)
+                .then(res => {
+                    alert("Edit Job successfully!")
+                })
+                .then(navigate(`/company/jobs`))
+                .catch(err => console.log(err))
+
+        }
+    };
 
     //fetch Job Jorm 
     const [jobform, setJobform] = useState([])
@@ -63,30 +82,23 @@ export default function PostNewJob() {
             .then(res => setIndustry(res.data))
             .catch(errr => console.log(errr))
     }, [])
-
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        setValidated(true);
-        if (form.checkValidity() === true) {
-            axios.post("http://localhost:9999/job", data)
-                .then(res => {
-                    alert("Add Job successfully!")
-                })
-                .then(navigate(`/company/jobs`))
-                .catch(err => console.log(err))
-
-        }
-    };
     const navigate = useNavigate();
+    const handleApp = (id, s) => {
+        axios.patch(`http://localhost:9999/job/${id}`, { status: s })
+            .then((response) => {
+                alert("Change successfully!")
+                window.location.href = "/admin/jobpost";
+            })
+            .catch((error) => {
+                // Handle errors.
+            });
+    }
     return (
+
         <Col className="bg-dark-subtle  ">
             <Row className="bg-white">
                 <div id="label" className="text-center fs-1 font ">
-                    Post A Job
+                    Detail Job {id}
                 </div>
             </Row>
             <Row className="mt-3 bg-white ">
@@ -103,24 +115,25 @@ export default function PostNewJob() {
                                         <Form.Label>Job Title</Form.Label>
                                         <span className="text-danger "> *</span>
                                         <Form.Control
+                                            disabled
                                             required
                                             name="title"
                                             type="text"
                                             placeholder="eg. Sennior UX Design"
-                                            defaultValue=""
+                                            value={data.title}
                                             onChange={e => {
                                                 setData({ ...data, title: e.target.value })
-                                                console.log(data);
                                             }}
                                         />
                                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                     </Form.Group>
                                     <Form.Group as={Col} md="6" controlId="validationPosition">
                                         <Form.Label>Position</Form.Label>
-                                        <Form.Select aria-label="Please select" value={data.position} onChange={e => {
-                                            setData({ ...data, position: parseInt(e.target.value, 10) })
-                                            console.log(data);
-                                        }}>
+                                        <Form.Select
+                                            disabled
+                                            aria-label="Please select" value={data.position} onChange={e => {
+                                                setData({ ...data, position: parseInt(e.target.value, 10) })
+                                            }}>
                                             {
                                                 position.map(pos => {
                                                     return <option key={pos.id} value={pos.id}>{pos.name}</option>
@@ -132,10 +145,13 @@ export default function PostNewJob() {
                                     </Form.Group>
                                     <Form.Group as={Col} md="6" controlId="validationPosition">
                                         <Form.Label>Job Form</Form.Label>
-                                        <Form.Select aria-label="Please select" onChange={e => {
-                                            setData({ ...data, workform: parseInt(e.target.value, 10) })
-                                            console.log(data);
-                                        }}>
+                                        <Form.Select aria-label="Please select"
+
+                                            disabled
+                                            value={data.workform || ''}
+                                            onChange={e => {
+                                                setData({ ...data, workform: parseInt(e.target.value, 10) })
+                                            }}>
                                             {
                                                 jobform.map(form => {
                                                     return <option key={form.id} value={form.id}>{form.name}</option>
@@ -149,13 +165,16 @@ export default function PostNewJob() {
                                 <Row className="mb-3">
                                     <Form.Group as={Col} md="6" controlId="validationCustom03">
                                         <Form.Label>Industry</Form.Label>
-                                        <Form.Select aria-label="Please select" onChange={e => {
-                                            setData({ ...data, industry: parseInt(e.target.value, 10) })
-                                            console.log(data);
-                                        }}>
+                                        <Form.Select aria-label="Please select"
+
+                                            disabled
+                                            value={data.industry || ''}
+                                            onChange={e => {
+                                                setData({ ...data, industry: parseInt(e.target.value, 10) })
+                                            }}>
                                             {
                                                 industry.map(form => {
-                                                    return <option key={form.id} value={form.id}>{form.name}</option>
+                                                    return <option key={form.id} value={form.id} >{form.name}</option>
                                                 })
                                             }
                                         </Form.Select>
@@ -164,30 +183,46 @@ export default function PostNewJob() {
                                     </Form.Group>
                                     <Form.Group as={Col} md="6" controlId="validationCustom04">
                                         <Form.Label>Location</Form.Label>
-                                        <Form.Control type="text" placeholder="Location" required onChange={e => {
-                                            setData({ ...data, location: e.target.value })
-                                            console.log(data);
-                                        }} />
+                                        <Form.Control type="text"
+
+                                            disabled
+                                            placeholder="Location"
+                                            required
+                                            value={data.location}
+                                            onChange={e => {
+                                                setData({ ...data, location: e.target.value })
+                                            }} />
                                         <Form.Control.Feedback type="invalid">
                                             Please provide a valid location.
                                         </Form.Control.Feedback>
                                     </Form.Group>
                                     <Form.Group as={Col} md="6" controlId="validationCustom04">
                                         <Form.Label>Salary $</Form.Label>
-                                        <Form.Control type="number" placeholder="eg. Deal or Salary Range" min="0" required onChange={e => {
-                                            setData({ ...data, salary: parseInt(e.target.value, 10) })
-                                            console.log(data);
-                                        }} />
+                                        <Form.Control type="number"
+                                            placeholder="eg. Deal or Salary Range"
+
+                                            disabled
+                                            min="0"
+                                            required
+                                            value={data.salary}
+                                            onChange={e => {
+                                                setData({ ...data, salary: parseInt(e.target.value, 10) })
+                                            }} />
                                         <Form.Control.Feedback type="invalid">
                                             Please provide a valid salary.
                                         </Form.Control.Feedback>
                                     </Form.Group>
                                     <Form.Group as={Col} md="6" controlId="validationCustom04">
                                         <Form.Label>Number of Employees</Form.Label>
-                                        <Form.Control type="number" placeholder="Number of Employees" min="0" required onChange={e => {
-                                            setData({ ...data, quantity: parseInt(e.target.value, 10) })
-                                            console.log(data);
-                                        }} />
+                                        <Form.Control type="number"
+                                            placeholder="Number of Employees" min="0"
+
+                                            disabled
+                                            required
+                                            value={data.quantity}
+                                            onChange={e => {
+                                                setData({ ...data, quantity: parseInt(e.target.value, 10) })
+                                            }} />
                                         <Form.Control.Feedback type="invalid">
                                             Please provide a valid salary.
                                         </Form.Control.Feedback>
@@ -196,10 +231,12 @@ export default function PostNewJob() {
                                     <Form.Group as={Col} md="12" controlId="validationCustom05">
                                         <Form.Label>Job Description</Form.Label>
                                         <InputGroup>
-                                            <Form.Control required as="textarea" aria-label="With textarea" placeholder="Description" value={data.recruitmentdescription.jobdescription} onChange={e => {
-                                                setData({ ...data, recruitmentdescription: { ...data.recruitmentdescription, jobdescription: e.target.value } })
-                                                console.log(data);
-                                            }} />
+                                            <Form.Control required as="textarea"
+
+                                                disabled
+                                                aria-label="With textarea" placeholder="Description" value={data.recruitmentdescription.jobdescription} onChange={e => {
+                                                    setData({ ...data, recruitmentdescription: { ...data.recruitmentdescription, jobdescription: e.target.value } })
+                                                }} />
                                             <Form.Control.Feedback type="invalid">
                                                 Please provide a valid description.
                                             </Form.Control.Feedback>
@@ -208,10 +245,10 @@ export default function PostNewJob() {
                                     <Form.Group as={Col} md="12" controlId="validationCustom05">
                                         <Form.Label>Requirement</Form.Label>
                                         <InputGroup>
-                                            <Form.Control required as="textarea" aria-label="With textarea" placeholder="Description" value={data.recruitmentdescription.requirements} onChange={e => {
-                                                setData({ ...data, recruitmentdescription: { ...data.recruitmentdescription, requirements: e.target.value } })
-                                                console.log(data);
-                                            }} />
+                                            <Form.Control
+                                                disabled required as="textarea" aria-label="With textarea" placeholder="Description" value={data.recruitmentdescription.requirements} onChange={e => {
+                                                    setData({ ...data, recruitmentdescription: { ...data.recruitmentdescription, requirements: e.target.value } })
+                                                }} />
                                             <Form.Control.Feedback type="invalid">
                                                 Please provide a valid requirement.
                                             </Form.Control.Feedback>
@@ -220,10 +257,10 @@ export default function PostNewJob() {
                                     <Form.Group as={Col} md="12" controlId="validationCustom05">
                                         <Form.Label>Benefits</Form.Label>
                                         <InputGroup>
-                                            <Form.Control required as="textarea" aria-label="With textarea" placeholder="Benefits" value={data.recruitmentdescription.benefits} onChange={e => {
-                                                setData({ ...data, recruitmentdescription: { ...data.recruitmentdescription, benefits: e.target.value } })
-                                                console.log(data);
-                                            }} />
+                                            <Form.Control
+                                                disabled required as="textarea" aria-label="With textarea" placeholder="Benefits" value={data.recruitmentdescription.benefits} onChange={e => {
+                                                    setData({ ...data, recruitmentdescription: { ...data.recruitmentdescription, benefits: e.target.value } })
+                                                }} />
                                             <Form.Control.Feedback type="invalid">
                                                 Please provide a valid benefits.
                                             </Form.Control.Feedback>
@@ -233,15 +270,14 @@ export default function PostNewJob() {
                                     <Form.Group as={Col} md="12" controlId="validationCustom01">
                                         <Form.Label>Name</Form.Label>
                                         <Form.Control
+
+                                            disabled
                                             required
                                             type="text"
                                             placeholder="Contact Person Name"
-                                            defaultValue=""
-
                                             value={data.contact.name}
                                             onChange={e => {
                                                 setData({ ...data, contact: { ...data.contact, name: e.target.value } })
-                                                console.log(data);
                                             }}
                                         />
                                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -249,13 +285,14 @@ export default function PostNewJob() {
                                     <Form.Group as={Col} md="12" controlId="validationCustom01">
                                         <Form.Label>Email</Form.Label>
                                         <Form.Control
+
+                                            disabled
                                             required
                                             type="email"
                                             placeholder="Contact Person Name"
                                             value={data.contact.email}
                                             onChange={e => {
                                                 setData({ ...data, contact: { ...data.contact, email: e.target.value } })
-                                                console.log(data);
                                             }}
                                         />
                                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -263,6 +300,8 @@ export default function PostNewJob() {
                                     <Form.Group as={Col} md="12" controlId="validationCustom01">
                                         <Form.Label>Phone Number</Form.Label>
                                         <Form.Control
+
+                                            disabled
                                             required
                                             type="tel"
                                             placeholder="Contact Phone number"
@@ -270,7 +309,6 @@ export default function PostNewJob() {
                                             value={data.contact.phonenumber}
                                             onChange={e => {
                                                 setData({ ...data, contact: { ...data.contact, phonenumber: e.target.value } })
-                                                console.log(data);
                                             }}
                                         />
                                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -278,12 +316,14 @@ export default function PostNewJob() {
                                     <Form.Group as={Col} md="12" controlId="validationCustom01">
                                         <Form.Label>Expired Date</Form.Label>
                                         <Form.Control
+
+                                            disabled
                                             type="date"
                                             name="datepic"
                                             placeholder="DateRange"
+                                            value={data.expireday}
                                             onChange={e => {
                                                 setData({ ...data, expireday: e.target.value })
-                                                console.log(data);
                                             }}
                                             required
                                         />
@@ -291,15 +331,20 @@ export default function PostNewJob() {
                                     </Form.Group>
 
                                 </Row>
-                                <Form.Group className="mb-3">
-                                    <Form.Check
-                                        required
-                                        label="Agree to terms and conditions"
-                                        feedback="You must agree before submitting."
-                                        feedbackType="invalid"
-                                    />
-                                </Form.Group>
-                                <Button className="mb-3" type="submit">Submit form</Button>
+
+                                {data.status === 1 ? (
+                                    <>
+                                        <Button variant="success" onClick={()=> handleApp(data.id,2)} className="mb-3" >Approve</Button>
+                                        &nbsp;
+                                        <Button variant="danger" onClick={()=> handleApp(data.id,3)} className="mb-3">Reject</Button>
+                                    </>
+                                ) : (
+                                    <>
+
+                                    </>
+                                )}
+
+                                <Button className="mb-3 ms-2 " type="button" style={{ backgroundColor: 'gray' }} as={Link} to="/admin/jobpost">Back</Button>
                             </Form>
                         </div>
 
@@ -308,5 +353,4 @@ export default function PostNewJob() {
             </Row>
         </Col>
     )
-
 }

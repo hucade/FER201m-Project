@@ -4,12 +4,11 @@ import { Container, ListGroup, Row } from 'react-bootstrap';
 import '../Assets/scss/Footer.scss'; // Import CSS file if needed
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaArrowRight } from "react-icons/fa6";
-import Button from 'react-bootstrap/Button';
 function Footer() {
     return (
 
         <footer>
-            <div className="footer-area footer-bg footer-padding">
+            <div className="footer-area footer-bg footer-padding" style={{ height: '250px' }}>
                 <div className="container-fluid">
                     <div className="row d-flex justify-content-between">
                         <div className="single-footer-caption mb-50">
@@ -58,9 +57,7 @@ function Footer() {
                                             placeholder="Email Address"
                                             className="placeholder hide-on-focus"
                                         />
-
                                         <button variant="light" style={{ height: '29px', width: '15px' }}><FaArrowRight /></button>{' '}
-
                                         <div className="mt-10 info"></div>
                                     </form>
                                 </div>

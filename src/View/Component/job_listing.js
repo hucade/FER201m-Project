@@ -10,13 +10,12 @@ export default function JobListing() {
   const [jobs, setJobs] = useState([]);
   const [Category, setCategory] = useState([]);
   const [Workforms, setWorkforms] = useState([]);
-  const [Locations, setLocations] = useState([]);
-  const [Experiences, setExperiences] = useState([]);
 
   const [selectedCategory, setSelectedCategory] = useState("0");
   const [selectedWorkform, setSelectedWorkform] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState("0");
   const [selectedExperience, setSelectedExperience] = useState([]);
+
+  const [companyData, setCompanyData] = useState([]);
   useEffect(() => {
     axios
       .get("http://localhost:9999/job")
@@ -30,6 +29,14 @@ export default function JobListing() {
       .get("http://localhost:9999/workform")
       .then((res) => setWorkforms(res.data))
       .catch((error) => console.log(error));
+    // Fetch company data
+    axios.get('http://localhost:9999/company') // Replace with your JSON server URL
+      .then((response) => {
+        setCompanyData(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching company data:', error);
+      });
   }, []);
 
   const filterJobs = () => {
@@ -46,16 +53,6 @@ export default function JobListing() {
 
     return filteredJobs;
   };
-  const handleExperienceChange = (e) => {
-    const itemId = parseInt(e.target.value);
-    const isChecked = e.target.checked;
-
-    if (isChecked) {
-      setSelectedExperience([...selectedExperience, itemId]);
-    } else {
-      setSelectedExperience(selectedExperience.filter((id) => id !== itemId));
-    }
-  };
   const handleWorkformChange = (e) => {
     const itemId = parseInt(e.target.value);
     const isChecked = e.target.checked;
@@ -68,6 +65,9 @@ export default function JobListing() {
   };
 
   const filteredJobs = filterJobs();
+  const getCompanyInfo = (companyId) => {
+    return companyData.find((company) => company.id === companyId);
+  };
   return (
     <>
       <Header />
@@ -186,7 +186,7 @@ export default function JobListing() {
                   >
                     <Card.Img
                       variant="top"
-                      src={item.image}
+                      src= {getCompanyInfo(item.company)?.logo}
                       alt="Description of the image"
                       style={{ width: "60px", height: "60px" }}
                     />

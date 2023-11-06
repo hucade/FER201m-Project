@@ -16,10 +16,11 @@ export default function JobDetail() {
       .then((res) => setJob(res.data))
       .catch((error) => console.log(error));
     axios
-      .get("http://localhost:9999/company/" + job.company)
+      .get("http://localhost:9999/company/"+job.company)
       .then((res) => setCompany(res.data))
       .catch((error) => console.log(error));
   }, [id, job.company]);
+  
   return (
     <>
       <Header />
@@ -76,7 +77,7 @@ export default function JobDetail() {
               <Card style={{ width: "23rem" }}>
                 <Card.Img
                   variant="top"
-                  src={"http://localhost:3000/" + job.image}
+                  src={company.logo}
                   alt="image"
                   style={{ width: "120px", height: "120px" }}
                 />

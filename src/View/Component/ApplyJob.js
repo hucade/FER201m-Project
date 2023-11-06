@@ -25,10 +25,8 @@ export default function ApplyJobs() {
                             <Form.Control
                                 type="text"
                                 name="name"
-
                                 className="form-control"
                                 placeholder="Enter Your Name"
-
                                 required
                             />
                         </Form.Group>
@@ -48,7 +46,6 @@ export default function ApplyJobs() {
                                 Submit
                             </Button>
                         </Form.Group>
-
                     </Form>
                 </div>
             </div>

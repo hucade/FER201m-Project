@@ -9,7 +9,8 @@
       "address": "Thái Hoà, Thạch Thất, Hà Nội",
       "phone": "0512989008",
       "createat": "2023-10-17",
-      "role": 3
+      "role": 3,
+      "BanStatus": 1
     },
     {
       "id": 2,
@@ -46,7 +47,7 @@
       "Introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat suscipit nisl id tincidunt. Aenean id pretium dolor. Suspendisse potenti. Etiam pretium massa at iaculis ornare. Duis rutrum eros vel massa condimentum imperdiet. In hac habitasse platea dictumst. Mauris eu risus quis ante rutrum dapibus sit amet non turpis. Integer in justo luctus, finibus arcu ut, tincidunt felis.",
       "fieldOfExpertise": 1,
       "role": 2,
-      "BanStatus": 0,
+      "BanStatus": 1,
       "Name": "Công ty TNHH Phần mềm Fpt Fsoft",
       "OnlineCv": "http://sample.net/donkey#seaa",
       "Experience": -1,
@@ -77,7 +78,7 @@
       "Introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat suscipit nisl id tincidunt. Aenean id pretium dolor. Suspendisse potenti. Etiam pretium massa at iaculis ornare. Duis rutrum eros vel massa condimentum imperdiet. In hac habitasse platea dictumst. Mauris eu risus quis ante rutrum dapibus sit amet non turpis. Integer in justo luctus, finibus arcu ut, tincidunt felis.",
       "fieldOfExpertise": 1,
       "role": 2,
-      "BanStatus": 0,
+      "BanStatus": 1,
       "Name": "Công Ty Cho Thuê Tài Chính Tnhh Mtv Quốc Tế Chailease",
       "OnlineCv": "http://sample.net/donkey#sea",
       "Experience": -1
@@ -210,7 +211,7 @@
           "phonenumber": "0964000008"
         }
       ],
-      "status": 1,
+      "status": 3,
       "createdate": "17-10-2023",
       "expireday": "18-10-2023"
     },
@@ -236,7 +237,7 @@
         "email": "asdf@fasd",
         "phonenumber": "0964686658"
       },
-      "status": 1,
+      "status": 2,
       "createdate": "4/11/2023",
       "expireday": "2023-11-29"
     }

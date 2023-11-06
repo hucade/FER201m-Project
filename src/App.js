@@ -9,8 +9,11 @@ import Dashboard from './View/Component/Company/Dashboard';
 import PostNewJob from './View/Component/Company/PostNewJob';
 import Jobs from './View/Component/Company/Jobs';
 import Update from './View/Component/Company/Update';
-import Profile from './View/Component/PersonalProfile';
 
+import AIndex from './View/Component/Admin/Index'
+import JobsManage from './View/Component/Admin/Jobs'
+import JobDetailManage from './View/Component/Admin/Update'
+import User from './View/Component/Admin/User'
 function App() {
   return (
     <Container fluid>
@@ -19,8 +22,6 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
-            <Route path="/profile" element={<Profile />} />
-
             <Route path="/contact" element={<Contact />} />
             <Route path="/jobdetail/:id" element={<JobDetail />} />
             <Route path="/JobListing" element={<JobListing />} />
@@ -35,6 +36,13 @@ function App() {
               <Route path="post-job" element={<PostNewJob />} />
               <Route index element={<Dashboard />} />
             </Route>
+            <Route path="/admin" element={<AIndex />}>
+              <Route path="jobpost" element={<JobsManage />} />
+              <Route path="update/:id" element={<JobDetailManage />} />
+              <Route path="user" element={<User />} />
+              <Route index element={<Dashboard />} />
+            </Route>
+
           </Routes>
         </Row>
         <Footer></Footer>

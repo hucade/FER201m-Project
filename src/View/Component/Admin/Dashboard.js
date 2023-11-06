@@ -7,7 +7,6 @@ export default function Admin() {
         <Container fluid>
             <Row>
                 Dashboard
-
             </Row>
         </Container>
     )

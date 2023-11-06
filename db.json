@@ -62,7 +62,7 @@
       "Introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat suscipit nisl id tincidunt. Aenean id pretium dolor. Suspendisse potenti. Etiam pretium massa at iaculis ornare. Duis rutrum eros vel massa condimentum imperdiet. In hac habitasse platea dictumst. Mauris eu risus quis ante rutrum dapibus sit amet non turpis. Integer in justo luctus, finibus arcu ut, tincidunt felis.",
       "fieldOfExpertise": 1,
       "role": 2,
-      "BanStatus": 0,
+      "BanStatus": 1,
       "Name": "Viettel Software Servicee",
       "OnlineCv": "http://sample.net/donkey#sea",
       "Experience": -1,
@@ -88,7 +88,15 @@
       "email": "quan25102001@gmail.com",
       "password": "hucade2510",
       "role": 3,
-      "id": 7
+      "id": 7,
+      "BanStatus": 1
+    },
+    {
+      "userName": "Quanhucade",
+      "email": "quanhucade@gmail.com",
+      "password": "hucade2510",
+      "role": 2,
+      "id": 8
     }
   ],
   "role": [
@@ -336,11 +344,19 @@
   "application": [
     {
       "id": 1,
-      "applicant": 1,
+      "userid": 1,
       "job": 1,
       "CV": "https://bestonlineresume.com/resume/67dce19a-5f39-4bfe-b100-66e96058a28c/preview",
       "applydate": "2023-17-10",
-      "status": 2
+      "applicationstatus": 2
+    },
+    {
+      "userid": 8,
+      "job": "1",
+      "CV": "https://chat.openai.com/",
+      "applydate": "11/6/2023",
+      "applicationstatus": 1,
+      "id": 2
     }
   ],
   "applicationstatus": [

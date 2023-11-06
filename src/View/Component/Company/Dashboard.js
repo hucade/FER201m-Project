@@ -46,9 +46,6 @@ export default function Admin() {
         // Handle the successful creation of the company, e.g., show a success message or update the state.
         console.log("New company created successfully:", res.data);
         // You can also reset the form fields if needed.
-        setNewCompanyName("");
-        setNewCompanyWebsite("");
-        setNewCompanyLogo("");
       })
       .catch((err) => {
         // Handle any errors, e.g., show an error message or log the error.

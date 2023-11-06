@@ -9,7 +9,7 @@ import Dashboard from './View/Component/Company/Dashboard';
 import PostNewJob from './View/Component/Company/PostNewJob';
 import Jobs from './View/Component/Company/Jobs';
 import Update from './View/Component/Company/Update';
-
+import aDashbroard from './View/Component/Admin/Dashboard'
 import AIndex from './View/Component/Admin/Index'
 import JobsManage from './View/Component/Admin/Jobs'
 import JobDetailManage from './View/Component/Admin/Update'
@@ -40,7 +40,7 @@ function App() {
               <Route path="jobpost" element={<JobsManage />} />
               <Route path="update/:id" element={<JobDetailManage />} />
               <Route path="user" element={<User />} />
-              <Route index element={<Dashboard />} />
+              <Route index element={<aDashbroard />} />
             </Route>
 
           </Routes>

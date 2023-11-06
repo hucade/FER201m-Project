@@ -40,6 +40,11 @@ export default function Header() {
                     Company Manager
                   </Nav.Link>
                 )}
+                {parsedObject && parsedObject.role === 1 && (
+                  <Nav.Link as={Link} to="/admin/jobpost">
+                    AdminManager
+                  </Nav.Link>
+                )}
               </div>
               <div>
                 {!isUserLoggedIn ? (
